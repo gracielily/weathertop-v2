@@ -1,0 +1,38 @@
+/* General */
+body {
+    background: #21375c;
+}
+
+.container {
+    padding-bottom: 15px;
+}
+
+/* Latest Readings */
+.latest-reading {
+    background: #e6e6e6 !important;
+}
+
+.card {
+    background: #1F2B53 !important;
+    color: white !important;
+}
+
+.card .ui.grid {
+    background: #1F2B53 !important;
+}
+
+.card i {
+    font-size: 40px;
+}
+
+#home .cards .card .content {
+    background: #fff !important;
+}
+
+.reading-icon {
+    margin-bottom: 15px;
+}
+
+#team .card .content div {
+    color: #fff !important;
+}
