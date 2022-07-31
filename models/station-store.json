@@ -3,8 +3,8 @@
     {
       "id": "01",
       "name": "Tramore",
-      "latitude": "123456.76",
-      "longitude": "4533467.32",
+      "latitude": 100,
+      "longitude": 100,
       "readings": [
         {
           "id": "01",
@@ -40,13 +40,36 @@
       ]
     },
     {
-      "name": "test",
-      "readings": []
-    },
-    {
-      "id": "65346bdb-dd6e-4319-9e32-b707da699107",
+      "id": "3e5aa44b-f8bc-4d30-911c-3710203c3a83",
       "name": "Wexford",
-      "readings": []
+      "latitude": "200",
+      "longitude": "200",
+      "readings": [
+        {
+          "id": "06dd3e5b-e699-4bb2-814d-3ef34bfd7fcd",
+          "code": "300",
+          "temperature": "20",
+          "windSpeed": "20",
+          "windDirection": "200",
+          "pressure": "200"
+        },
+        {
+          "id": "e1b5ea9b-4ac2-4b5f-8e3c-b98111a0f5bd",
+          "code": "100",
+          "temperature": "10",
+          "windSpeed": "10",
+          "windDirection": "10",
+          "pressure": "10"
+        },
+        {
+          "id": "450f1df6-7f3d-4968-a1c8-69a9cef1f87a",
+          "code": "500",
+          "temperature": "2",
+          "windSpeed": "100",
+          "windDirection": "100",
+          "pressure": "100"
+        }
+      ]
     }
   ]
 }
