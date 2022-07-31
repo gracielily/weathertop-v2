@@ -1,9 +1,24 @@
 {{> menu id="dashboard"}}
 
-<section class="ui raised segment">
-    <h1>Dashboard</h1>
+<!-- Main Heading -->
+<section class="ui segment">
+  <h2 class="ui center aligned icon header blue">
+    <i class="circular chart bar icon"></i>
+    <span class="blue">Dashboard</span>
+  </h2>
 </section>
-
+<!-- New Station Nav Link -->
+{{#if error}}
+  {{> displayerror error=error }}
+{{/if}}
+<section class="ui segment">
+  <a href="#newStation">
+    <button class="ui primary button">
+      <i class="plus icon"></i>Add New Station
+    </button>
+  </a>
+</section>
+<!-- Stations List -->
 {{#if stations}}
 {{#each stations}}
   <section class="ui segment">
@@ -34,3 +49,7 @@
   </div>
 </div>
 {{/if}}
+<!-- New Station Form -->
+<section class="ui section " id="newStation">
+  {{> createstationform }}
+</section>

@@ -38,6 +38,15 @@
           "pressure": "10"
         }
       ]
+    },
+    {
+      "name": "test",
+      "readings": []
+    },
+    {
+      "id": "65346bdb-dd6e-4319-9e32-b707da699107",
+      "name": "Wexford",
+      "readings": []
     }
   ]
 }

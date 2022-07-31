@@ -1,14 +1,7 @@
 {{> menu id="dashboard"}}
 
 <!-- Breadcrumbs -->
-<section class="ui left aligned middle aligned segment">
-  <div class="ui breadcrumb">
-    <a class="section" href="/dashboard">Dashboard</a>
-    <i class="right chevron icon divider"></i>
-    <div class="active section">Station Details</div>
-  </div>
-</section>
-{{> breadcrumbs breadcrumbs=[{"Dashboard": "/dashboard"}, {"Station Details": ""}]}}
+{{> breadcrumbs crumbs=crumbs}}
 <!-- Main Heading -->
 <section class="ui segment">
   <h2 class="ui center aligned icon header blue">
@@ -24,22 +17,23 @@
     </button>
   </a>
 </section>
-{{#unless station.readings}}
-<!-- No Readings Message -->
-<section class="ui icon blue message">
-  <i class="lightbulb icon"></i>
-  <div class="content">
-    <div class="header">
-      No Weather Readings for Station {{capitilize station.name}}
+{{#if station.readings}}
+  <!-- Readings List -->
+  <section class="ui raised segment" id="newReading">
+     {{> latestreading name=station.name reading=(last station.readings)}}
+     {{> listreadings readings=station.readings}}
+  </section>
+{{else}}
+  <!-- No Readings Message -->
+  <section class="ui icon blue message">
+    <i class="lightbulb icon"></i>
+    <div class="content">
+      <div class="header">
+        No Weather Readings for Station {{capitilize station.name}}
+      </div>
+      <p>You can create a Reading by filling out the form below.</p>
     </div>
-    <p>You can create a Reading by filling out the form below.</p>
-  </div>
-</section>
-{{/unless}}
-<!-- Readings List -->
-<section class="ui raised segment" id="newReading">
-   {{> latestreading name=station.name reading=(last station.readings)}}
-   {{> listreadings readings=station.readings}}
-</section>
+  </section>
+{{/if}}
 <!-- Create New Reading Form -->
 {{> createreading station=station error=error}}

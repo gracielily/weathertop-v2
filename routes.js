@@ -10,6 +10,7 @@ const station = require("./controllers/station.js");
 
 router.get("/", home.index);
 router.get("/dashboard", dashboard.index);
+router.post("/dashboard/addstation", dashboard.addStation);
 router.get("/about", about.index);
 router.get("/stations/:id", station.index);
 router.post('/stations/:id/addreading', station.addReading);

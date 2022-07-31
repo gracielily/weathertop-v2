@@ -11,6 +11,23 @@ const dashboard = {
     response.render("dashboard", viewData);
   },
 
+  addStation(request, response) {
+    const station = {
+      id: uuid.v4(),
+      name: request.body.name,
+      readings: [],
+    };
+    try {
+      stationStore.addStation(station);
+      response.redirect("/dashboard");
+    } catch (e) {
+      response.render("dashboard", {
+        pageTitle: "Dashboard",
+        stations: stationStore.getAllStations(),
+        error: e,
+      });
+    }
+  },
 };
 
 module.exports = dashboard;
