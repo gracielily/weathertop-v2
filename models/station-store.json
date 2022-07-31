@@ -12,7 +12,7 @@
           "temperature": 10.5,
           "windSpeed": 32.5,
           "windDirection": 100,
-          "pressure": 1000
+          "pressure": 999
         },
         {
           "id": "02",
@@ -21,8 +21,23 @@
           "windSpeed": 40,
           "windDirection": 200,
           "pressure": 1000
+        },
+        {
+          "id": "03",
+          "code": "200",
+          "temperature": "10",
+          "windSpeed": "100",
+          "windDirection": "100",
+          "pressure": "100"
+        },
+        {
+          "code": "300",
+          "temperature": "20",
+          "windSpeed": "100",
+          "windDirection": "10",
+          "pressure": "10"
         }
       ]
     }
-    ]
-  }
+  ]
+}

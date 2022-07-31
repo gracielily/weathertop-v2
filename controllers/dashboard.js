@@ -6,7 +6,7 @@ const dashboard = {
   index(request, response) {
     const viewData = {
       pageTitle: "Dashboard",
-      stations: stationStore.stationCollection,
+      stations: stationStore.getAllStations(),
     };
     response.render("dashboard", viewData);
   },
