@@ -29,18 +29,45 @@ app.engine(
       capitilize: (val) => {
         return val.charAt(0).toUpperCase() + val.slice(1);
       },
-      weatherIcon: (val) => {
-        const classMap = {
-          100: "sun",
-          200: "cloud sun",
-          300: "cloud",
-          400: "cloud sun rain",
-          500: "cloud showers heavy rain",
-          600: "cloud rain",
-          700: "snowflake",
-          800: "bolt",
+      mapCodetoWeather: (weatherCode) => {
+        const weatherMap = {
+          100: {
+            label: "Clear",
+            icon: "sun",
+          },
+          200: {
+            label: "Partial Clouds",
+            icon: "cloud sun",
+          },
+          300: {
+            label: "Cloudy",
+            icon: "cloud",
+          },
+          400: {
+            label: "Light Showers",
+            icon: "cloud sun rain",
+          },
+          500: {
+            label: "Heavy Showers",
+            icon: "cloud showers heavy rain",
+          },
+          600: {
+            label: "Rain",
+            icon: "cloud rain",
+          },
+          700: {
+            label: "Snow",
+            icon: "snowflake",
+          },
+          800: {
+            label: "Thunder",
+            icon: "bolt",
+          },
         };
-        return classMap[val] ? classMap[val] : "question";
+
+        return weatherMap[weatherCode]
+          ? weatherMap[weatherCode]
+          : { label: "Unknown", icon: "question" };
       },
       tempIcon: (temp) => {
         if (temp > 18) {
@@ -159,11 +186,16 @@ app.engine(
         return label.trim();
       },
       windChill: (temperature, windSpeed) => {
-        return Math.floor(
-            (13.2 + 0.6215 * temperature - 11.37 * Math.pow(windSpeed, 0.16) +
-                0.3965 * temperature * Math.pow(windSpeed, 0.16)) * 10
-        ) / 10;
-      }
+        return (
+          Math.floor(
+            (13.2 +
+              0.6215 * temperature -
+              11.37 * Math.pow(windSpeed, 0.16) +
+              0.3965 * temperature * Math.pow(windSpeed, 0.16)) *
+              10
+          ) / 10
+        );
+      },
     },
   })
 );

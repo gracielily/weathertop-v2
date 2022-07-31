@@ -23,7 +23,7 @@
 {{#each stations}}
   <section class="ui segment">
   {{#if readings}}
-    {{> latestreading name=name reading=(last readings)}}
+    {{> latestreading station=this reading=(last readings)}}
   {{else}}
     <h2>{{capitilize name}}</h2>
     <p>No Weather available for {{capitilize name}} Station.</p>

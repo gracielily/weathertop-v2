@@ -5,7 +5,9 @@
       <div class="content">
         <div class="ui grid">
           <div class="ten wide column">
-            <h3>{{capitilize name}}</h3>
+            <h3>{{capitilize station.name}}</h3>
+            <p>Lat: {{station.latitude}}</p>
+            <p>Lng: {{station.longitude}}</p>
           </div>
           <div class="six wide column">
             <i class="map marker alternate icon"></i>
@@ -20,13 +22,15 @@
       <div class="content">
         <div class="ui grid">
           <div class="ten wide column">
+            {{#with (mapCodetoWeather reading.code)}}
             <h3>Weather</h3>
-            <p>{{reading.code}}</p>
+            <p>{{label}}</p>
           </div>
           <div class="six wide column">
             <p>
-              <i class="{{weatherIcon reading.code}} icon"></i>
+              <i class="{{icon}} icon"></i>
             </p>
+            {{/with}}
           </div>
         </div>
       </div>
