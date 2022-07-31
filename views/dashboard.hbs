@@ -9,12 +9,19 @@
   <section class="ui segment">
   {{#if readings}}
     {{> latestreading name=name reading=(last readings)}}
-    {{> listreadings readings=readings}}
   {{else}}
     <h2>{{capitilize name}}</h2>
     <p>No Weather available for {{capitilize name}} Station.</p>
   {{/if}}
   <div class="ui divider"></div>
+  <a href="/stations/{{id}}">
+    <div class="ui vertical animated button">
+      <div class="hidden content">View</div>
+      <div class="visible content">
+        <i class="eye icon"></i>
+      </div>
+    </div>
+  </a>
   </section>
 {{/each}}
 {{else}}

@@ -1,0 +1,46 @@
+{{#if error}}
+  {{> displayerror error=error}}
+{{/if}}
+<form action="/stations/{{station.id}}/addreading" class="ui raised segment form" method="POST">
+  <h3 class="ui left aligned header">Add New Reading</h3>
+  <div class="three fields">
+    <div class="field">
+      <label for="code">Code</label>
+      <div class="ui left icon input">
+        <i class="sun icon"></i>
+        <input id="code" name="code" placeholder="200" required type="number">
+      </div>
+    </div>
+    <div class="field">
+      <label for="temperature">Temperature</label>
+      <div class="ui left icon input">
+        <i class="thermometer icon"></i>
+        <input id="temperature" name="temperature" placeholder="00.0C" required step="0.01" type="number">
+      </div>
+    </div>
+    <div class="field">
+      <label for="windSpeed">Wind Speed</label>
+      <div class="ui left icon input">
+        <i class="wind icon"></i>
+        <input id="windSpeed" name="windSpeed" placeholder="00.00kMh" required step="0.01" type="number">
+      </div>
+    </div>
+  </div>
+  <div class="three fields">
+    <div class="field">
+      <label for="windDirection">Wind Direction</label>
+      <div class="ui left icon input">
+        <i class="compass icon"></i>
+        <input id="windDirection" name="windDirection" placeholder="000deg" required type="number">
+      </div>
+    </div>
+    <div class="field">
+      <label for="pressure">Pressure</label>
+      <div class="ui left icon input">
+        <i class="water icon"></i>
+        <input id="pressure" name="pressure" placeholder="000hPa" required type="number">
+      </div>
+    </div>
+  </div>
+  <button class="ui submit button blue"><i class="plus icon"></i>Submit Reading</button>
+</form>

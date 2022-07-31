@@ -11,6 +11,7 @@
           "code": 800,
           "temperature": 10.5,
           "windSpeed": 32.5,
+          "windDirection": 100,
           "pressure": 1000
         },
         {
@@ -18,6 +19,7 @@
           "code": 600,
           "temperature": 22,
           "windSpeed": 40,
+          "windDirection": 200,
           "pressure": 1000
         }
       ]
