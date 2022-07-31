@@ -1,0 +1,26 @@
+{
+  "stationCollection": [
+    {
+      "id": "01",
+      "name": "Tramore",
+      "latitude": "123456.76",
+      "longitude": "4533467.32",
+      "readings": [
+        {
+          "id": "01",
+          "code": 800,
+          "temperature": 10.5,
+          "windSpeed": 32.5,
+          "pressure": 1000
+        },
+        {
+          "id": "02",
+          "code": 600,
+          "temperature": 22,
+          "windSpeed": 40,
+          "pressure": 1000
+        }
+      ]
+    }
+    ]
+  }
