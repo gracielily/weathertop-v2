@@ -1,0 +1,27 @@
+<h3>Readings Recorded</h3>
+<table class="ui fixed table">
+  <thead>
+  <tr>
+    <!-- TODO: Add Date/Time -->
+    <th>Code</th>
+    <th>Temp</th>
+    <th>Wind Speed</th>
+<!-- TODO: Add Wind Direction -->
+    <th>Pressure</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each readings}}
+  <tr>
+    <td>{{code}}</td>
+    <td>{{temperature}}</td>
+    <td>{{windSpeed}}</td>
+    <!-- TODO: Add windDirection -->
+    <td>{{pressure}}</td>
+    <td>
+      <!-- TODO: Add delete link -->
+    </td>
+  </tr>
+  {{/each}}
+  </tbody>
+</table>

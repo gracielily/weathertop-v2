@@ -4,8 +4,26 @@
     <h1>Dashboard</h1>
 </section>
 
+{{#if stations}}
 {{#each stations}}
   <section class="ui segment">
-    {{> latest-reading name=name reading=(last readings)}}
+  {{#if readings}}
+    {{> latestreading name=name reading=(last readings)}}
+    {{> listreadings readings=readings}}
+  {{else}}
+    <h2>{{capitilize name}}</h2>
+    <p>No Weather available for {{capitilize name}} Station.</p>
+  {{/if}}
+  <div class="ui divider"></div>
   </section>
 {{/each}}
+{{else}}
+<div class="ui icon blue message">
+  <i class="lightbulb icon"></i>
+  <div class="content">
+    <div class="header">
+      You currently have no Weather Stations
+    </div>
+  </div>
+</div>
+{{/if}}
