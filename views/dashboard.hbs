@@ -3,3 +3,9 @@
 <section class="ui raised segment">
     <h1>Dashboard</h1>
 </section>
+
+{{#each stations}}
+  <section class="ui segment">
+    {{> latest-reading name=name reading=(last readings)}}
+  </section>
+{{/each}}

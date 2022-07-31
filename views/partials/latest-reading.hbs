@@ -1,0 +1,91 @@
+<section class="ui five column grid stretched latest-reading">
+  <!-- Station Details -->
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="ui grid">
+          <div class="ten wide column">
+            <h3>{{capitilize name}}</h3>
+          </div>
+          <div class="six wide column">
+            <i class="map marker alternate icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Weather Details -->
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="ui grid">
+          <div class="ten wide column">
+            <h3>Weather</h3>
+            <p>{{reading.code}}</p>
+          </div>
+          <div class="six wide column">
+            <p>
+            <i class="{{weatherIcon reading.code}} icon"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Temperature Details -->
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="ui grid">
+          <div class="ten wide column">
+            <h3>Temp</h3>
+            <p>{{reading.temperature}} C</p>
+            <p>{{reading.temperature}} F</p>
+          </div>
+          <div class="six wide column">
+            <div class="reading-icon">
+              <i class="{{tempIcon reading.temperature}} icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wind Details -->
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="ui grid">
+          <div class="ten wide column">
+            <h3>Wind</h3>
+            <p>{{toBeaufort reading.windSpeed}}</p>
+            <p>{{beaufortLabel (toBeaufort reading.windSpeed)}}</p>
+          </div>
+          <div class="six wide column">
+            <div class="reading-icon">
+              <i class="icon {{windIcon reading.windSpeed}}"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pressure Details -->
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="ui grid">
+          <div class="ten wide column">
+            <h3>Pressure</h3>
+            <p>{{reading.pressure}} hpa</p>
+          </div>
+          <div class="six wide column">
+            <div class="reading-icon">
+              <i class="water icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
