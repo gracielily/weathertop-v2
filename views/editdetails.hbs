@@ -1,0 +1,14 @@
+{{> menu id="dashboard" isAuthUser=true}}
+
+<!-- Breadcrumbs -->
+{{> breadcrumbs navBreadcrumbs=navBreadcrumbs}}
+
+<!-- Main Heading -->
+<section class="ui segment">
+  <h2 class="ui center aligned icon header blue">
+    <i class="circular user icon"></i>
+    Account Details for {{capitilize user.firstName}}
+  </h2>
+</section>
+<!-- Edit Details Form -->
+{{> accountdetailsform postUrl=postUrl user=user }}
