@@ -20,7 +20,7 @@
 {{#if station.readings}}
   <!-- Readings List -->
   <section class="ui raised segment" id="newReading">
-     {{> latestreading station=station reading=(last station.readings)}}
+     {{> latestreading station=station readings=station.readings}}
      {{> listreadings readings=station.readings}}
   </section>
 {{else}}

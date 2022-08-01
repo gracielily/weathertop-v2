@@ -19,10 +19,10 @@ const station = {
     const reading = {
       id: uuid.v4(),
       code: request.body.code,
-      temperature: request.body.temperature,
-      windSpeed: request.body.windSpeed,
-      windDirection: request.body.windDirection,
-      pressure: request.body.pressure,
+      temperature: Number(request.body.temperature),
+      windSpeed: Number(request.body.windSpeed),
+      windDirection: Number(request.body.windDirection),
+      pressure: Number(request.body.pressure),
     };
     try {
       stationStore.addReading(stationId, reading);
