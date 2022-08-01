@@ -6,17 +6,7 @@
       "name": "Wexford",
       "latitude": 10,
       "longitude": 10,
-      "readings": [
-        {
-          "id": "e7f93b8f-3b57-48fb-b559-13fb2d241620",
-          "timestamp": "2022-08-01T19:32:01.286Z",
-          "code": "300",
-          "temperature": 10,
-          "windSpeed": 10,
-          "windDirection": 10,
-          "pressure": 10
-        }
-      ]
+      "readings": []
     }
   ]
 }
