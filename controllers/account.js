@@ -3,18 +3,43 @@
 const userstore = require("../models/user-store");
 const logger = require("../utils/logger");
 const uuid = require("uuid");
-const contextData = {
+const LoginContextData = {
   pageTitle: "Login",
+};
+const signupContextData = {
+  pageTitle: "Signup",
 };
 
 const accounts = {
   login(request, response) {
-    response.render("login", contextData);
+    response.render("login", LoginContextData);
   },
 
   logout(request, response) {
     response.cookie("user", "");
     response.redirect("/");
+  },
+
+  signup(request, response) {
+    response.render("signup", signupContextData);
+  },
+
+  register(request, response) {
+    const user = {
+      id: uuid.v4(),
+      firstName: request.body.firstname,
+      lastName: request.body.lastname,
+      email: request.body.email,
+      password: request.body.password,
+    };
+    try {
+      userstore.addUser(user);
+      response.redirect("/");
+    } catch (e) {
+      const errorContextData = { ...signupContextData };
+      errorContextData.error = e;
+      response.render("signup", errorContextData);
+    }
   },
 
   authenticate(request, response) {
@@ -23,7 +48,7 @@ const accounts = {
       response.cookie("user", user.email);
       response.redirect("/dashboard");
     } else {
-      const errorContextData = {...contextData}
+      const errorContextData = { ...LoginContextData };
       errorContextData.error = "Invalid Credentials. Please try again.";
       response.render("login", errorContextData);
     }
@@ -32,7 +57,7 @@ const accounts = {
   getLoggedInUserOrRedirect(request, response) {
     const user = userstore.getByEmail(request.cookies.user);
     if (!user) {
-      response.redirect("/login")
+      response.redirect("/login");
     }
     return user;
   },

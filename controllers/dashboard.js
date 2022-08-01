@@ -14,8 +14,10 @@ const dashboard = {
   },
 
   addStation(request, response) {
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const station = {
       id: uuid.v4(),
+      userId: user.id,
       name: request.body.name,
       latitude: Number(request.body.latitude),
       longitude: Number(request.body.longitude),

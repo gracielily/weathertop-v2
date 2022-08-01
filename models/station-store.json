@@ -69,7 +69,7 @@
           "temperature": "2",
           "windSpeed": "100",
           "windDirection": "100",
-          "pressure": "100"
+          "pressure": "200"
         }
       ]
     }

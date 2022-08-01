@@ -1,0 +1,39 @@
+<form action="{{postUrl}}" class="ui raised segment form" method="POST">
+  <h3 class="ui header">Edit Details</h3>
+  <div class="two fields">
+    <div class="field">
+      <label for="firstname">First Name</label>
+      <div class="ui left icon input">
+        <i class="user icon"></i>
+        <input id="firstname" name="firstName" placeholder="First Name" required type="text"
+               value="{{user.firstName}}">
+      </div>
+    </div>
+    <div class="field">
+      <label for="lastname">Last Name</label>
+      <div class="ui left icon input">
+        <i class="user icon"></i>
+        <input id="lastname" name="lastName" placeholder="Last Name" required type="text" value="{{user.lastName}}">
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <div class="ui left icon input">
+      <i class="envelope icon"></i>
+      <input id="email" name="email" placeholder="Email" required type="text" value="{{user.email}}">
+    </div>
+  </div>
+  <div class="field">
+    <label for="password">Password</label>
+    <div class="ui left icon input">
+      <i class="lock icon"></i>
+      <input id="password" name="password" placeholder="Password" required type="password" value="{{user.password}}">
+    </div>
+  </div>
+  {{#if createUser}}
+  <button class="ui fluid large blue submit button">Register</button>
+  {{else}}
+  <button class="ui blue submit button"><i class="pencil icon"></i>Update Details</button>
+  {{/if}}
+</form>

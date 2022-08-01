@@ -1,6 +1,7 @@
 "use strict";
 const uuid = require("uuid");
 const stationStore = require("../models/station-store");
+const account = require("./account.js");
 const contextData = {
       pageTitle: "Station Details",
       navBreadcrumbs: [
@@ -10,11 +11,13 @@ const contextData = {
     };
 const station = {
   index(request, response) {
+    account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
     contextData.station = stationStore.getStation(stationId);
     response.render("station", contextData);
   },
   addReading(request, response) {
+    account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
     const reading = {
       id: uuid.v4(),

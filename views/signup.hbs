@@ -1,0 +1,21 @@
+{{> menu id="signup"}}
+
+<!-- Main Heading -->
+<section class="ui segment">
+  <h2 class="ui center aligned icon header blue">
+    <i class="circular user plus icon"></i>
+    Create An Account
+  </h2>
+</section>
+<!-- Signup Form -->
+{{#if error}}
+{{> displayerror error=error }}
+{{/if}}
+<section class="ui middle left aligned grid">
+  <div class="column">
+    {{> accountdetailsform postUrl='/register' createUser=true }}
+    <div class="ui message center aligned grid">
+      <p>Already have an Account? <a href="/login">Login</a></p>
+    </div>
+  </div>
+</section>

@@ -17,6 +17,8 @@ router.get("/stations/:id", station.index);
 router.post("/stations/:id/addreading", station.addReading);
 router.get("/login", account.login);
 router.post("/authenticate", account.authenticate);
+router.get("/signup", account.signup);
+router.post("/register", account.register);
 router.get("/logout", account.logout);
 
 module.exports = router;
