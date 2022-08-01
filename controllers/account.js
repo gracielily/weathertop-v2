@@ -10,7 +10,7 @@ const signupContextData = {
   pageTitle: "Signup",
 };
 
-const accounts = {
+const account = {
   login(request, response) {
     response.render("login", LoginContextData);
   },
@@ -18,7 +18,7 @@ const accounts = {
   logout(request, response) {
     ["user", "display_welcome_message"].forEach((cookie) => {
       response.clearCookie(cookie);
-    })
+    });
     response.redirect("/");
   },
 
@@ -29,8 +29,8 @@ const accounts = {
   register(request, response) {
     const user = {
       id: uuid.v4(),
-      firstName: request.body.firstname,
-      lastName: request.body.lastname,
+      firstName: request.body.firstName,
+      lastName: request.body.lastName,
       email: request.body.email,
       password: request.body.password,
     };
@@ -63,7 +63,40 @@ const accounts = {
       response.redirect("/login");
     }
     return user;
+  },
+
+  edit(request, response) {
+    const user = userstore.getByEmail(request.cookies.user);
+    if (user.id !== request.params.id) {
+      response.render("404");
+    } else {
+      response.render("editdetails", {
+        pageTitle: "Edit User Details",
+        user: user,
+        navBreadcrumbs: [
+          { title: "Dashboard", link: "/dashboard" },
+          { title: "Account Details" },
+        ],
+        postUrl: '/users/' + user.id + '/save-details'
+      });
+    }
+  },
+  
+  saveDetails(request, response){
+    const user = userstore.getByEmail(request.cookies.user);
+    if (user.id !== request.params.id) {
+      response.render("404");
+    } else {
+      const updatedUser = {
+      firstName: request.body.firstName,
+      lastName: request.body.lastName,
+      email: request.body.email,
+      password: request.body.password,
+    };
+      userstore.updateUser(user, updatedUser);
+      response.redirect('/users/' + user.id);
+    }
   }
 };
 
-module.exports = accounts;
+module.exports = account;

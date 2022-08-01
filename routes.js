@@ -23,5 +23,7 @@ router.post("/authenticate", account.authenticate);
 router.get("/signup", account.signup);
 router.post("/register", account.register);
 router.get("/logout", account.logout);
+router.get("/users/:id", account.edit);
+router.post("/users/:id/save-details", account.saveDetails);
 
 module.exports = router;
