@@ -53,6 +53,7 @@
             <div class="reading-icon">
               <i class="{{tempIcon temperature}} icon"></i>
             </div>
+            {{> displaytrend readings=../readings trendLookup="temperature"}}
           </div>
         </div>
       </div>
@@ -77,6 +78,7 @@
             <div class="reading-icon">
               <i class="icon {{windIcon windSpeed}}"></i>
             </div>
+            {{> displaytrend readings=../readings trendLookup="windSpeed"}}
           </div>
         </div>
       </div>
@@ -97,6 +99,7 @@
             <div class="reading-icon">
               <i class="water icon"></i>
             </div>
+            {{> displaytrend readings=../readings trendLookup="pressure"}}
           </div>
         </div>
       </div>

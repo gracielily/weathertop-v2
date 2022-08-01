@@ -79,7 +79,7 @@ app.engine(
         }
       },
       asFahrenheit: (temperature) => {
-        return temperature * 9 / 5 + 32;
+        return (temperature * 9) / 5 + 32;
       },
       toBeaufort: (windSpeed) => {
         if (windSpeed == 1) {
@@ -207,16 +207,45 @@ app.engine(
         const values = readings.map((reading) => reading[key]);
         return Math.min(...values);
       },
+      getTrend: (readings, key) => {
+        const values = readings.map((reading) => reading[key]);
+        const len = values.length;
+        
+        if (len > 2) {
+          if (
+            values[len - 2] > values[len - 3] &&
+            values[len - 1] > values[len - 2]
+          ) {
+            return "RISING";
+          } else if (
+            values[len - 2] < values[len - 3] &&
+            values[len - 1] < values[len - 2]
+          ) {
+            return "FALLING";
+          }
+          return "STEADY";
+        }
+        return;
+      },
+      trendIcon: (trend) => {
+        switch(trend){
+          case "RISING":
+            return "angle double up red";
+          case "FALLING":
+            return "angle double up red"
+          case "STEADY":
+            return "arrows alternate horizontal green"
+        }
+      },
       toFixed: (value) => {
         return value.toFixed(3);
       },
       formatTimestamp: (timestampString) => {
         const date = new Date(timestampString);
-        const displayDate = date.toISOString().split('T')[0];
+        const displayDate = date.toISOString().split("T")[0];
         const displayTime = date.toLocaleTimeString([], { hour12: false });
         return displayDate + " " + displayTime;
-      
-      }
+      },
     },
   })
 );
