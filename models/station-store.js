@@ -36,6 +36,12 @@ const stationStore = {
     this.store.add(this.collection, station);
     this.store.save();
   },
+  
+  deleteStation(id){
+    const station = this.getStation(id);
+    this.store.remove(this.collection, station);
+    this.store.save()
+  },
 
   addReading(id, reading) {
     const station = this.getStation(id);
@@ -52,9 +58,6 @@ const stationStore = {
 
   deleteReading(stationId, readingId) {
     const station = this.getStation(stationId);
-    const reading = station.readings.find((reading) => {
-      reading.id === readingId;
-    });
     _.remove(station.readings, { id: readingId });
     this.store.save();
   },
