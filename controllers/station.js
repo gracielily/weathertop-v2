@@ -14,6 +14,9 @@ const station = {
     account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
     contextData.station = stationStore.getStation(stationId);
+    if(!contextData.station){
+      response.render("404");
+    }
     response.render("station", contextData);
   },
   addReading(request, response) {
@@ -37,6 +40,13 @@ const station = {
       response.render("station", errorContextData);
     }
   },
+  deleteReading(request, response){
+    account.getLoggedInUserOrRedirect(request, response);
+    const stationId = request.params.id
+    const readingId = request.params.readingId
+    stationStore.deleteReading(stationId, readingId);
+    response.redirect("/stations/" + stationId);
+  }
 };
 
 module.exports = station;

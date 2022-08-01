@@ -27,7 +27,9 @@ app.engine(
         return arr[arr.length - 1];
       },
       capitilize: (val) => {
+        if(val){
         return val.charAt(0).toUpperCase() + val.slice(1);
+        }
       },
       weatherCodeDisplay: (weatherCode) => {
         const weatherMap = {

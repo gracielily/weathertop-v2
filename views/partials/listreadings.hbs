@@ -9,10 +9,11 @@
     <th>Wind Speed</th>
     <th>Wind Direction</th>
     <th>Pressure</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
-  {{#each readings}}
+  {{#each station.readings}}
   <tr>
     <td>{{formatTimestamp timestamp}}</td>
     <td>{{code}}</td>
@@ -20,6 +21,16 @@
     <td>{{windSpeed}}</td>
     <td>{{windDirection}}</td>
     <td>{{pressure}}</td>
+    <td>
+      <a href="/stations/{{../station.id}}/delete-reading/{{id}}">
+        <div class="ui vertical animated red button">
+          <div class="hidden content">Delete</div>
+          <div class="visible content">
+            <i class="trash icon"></i>
+          </div>
+        </div>
+      </a>
+    </td>
   </tr>
   {{/each}}
   </tbody>
