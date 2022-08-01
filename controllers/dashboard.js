@@ -6,9 +6,11 @@ const account = require("./account.js");
 const dashboard = {
   index(request, response) {
     const user = account.getLoggedInUserOrRedirect(request, response);
+    const stations = stationStore.getStationsForUser(user.id);
+    stations.sort((x, y) => x.name.toLowerCase().localeCompare(y.name.toLowerCase()))
     const contextData = {
       pageTitle: "Dashboard",
-      stations: stationStore.getStationsForUser(user.id),
+      stations: stations,
       user: user,
     };
     const displayWelcomeMsg = request.cookies["display_welcome_message"];

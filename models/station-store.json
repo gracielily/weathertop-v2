@@ -80,6 +80,14 @@
       "latitude": 60,
       "longitude": 100,
       "readings": []
+    },
+    {
+      "id": "76852e68-16ac-444b-9bb7-9b2c925c11b5",
+      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
+      "name": "Cork",
+      "latitude": 20,
+      "longitude": 20,
+      "readings": []
     }
   ]
 }
