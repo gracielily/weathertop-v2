@@ -1,5 +1,18 @@
 {{> menu id="dashboard" isAuthUser=true}}
 
+{{#if displayWelcomeMsg }}
+<!-- Welcome Message -->
+<div class="ui icon message">
+  <i class="hand spock icon"></i>
+  <div class="content">
+    <div class="header">
+      Welcome back, {{capitilize user.firstName}}!
+    </div>
+    <p>Manage your Weather Stations below</p>
+  </div>
+  <a href="dashboard/dismiss-welcome"><i class="close icon"></i></a>
+</div>
+{{/if}}
 <!-- Main Heading -->
 <section class="ui segment">
   <h2 class="ui center aligned icon header blue">

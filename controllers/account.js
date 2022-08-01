@@ -16,7 +16,9 @@ const accounts = {
   },
 
   logout(request, response) {
-    response.cookie("user", "");
+    ["user", "display_welcome_message"].forEach((cookie) => {
+      response.clearCookie(cookie);
+    })
     response.redirect("/");
   },
 
@@ -46,6 +48,7 @@ const accounts = {
     const user = userstore.getByEmail(request.body.email);
     if (user && user.password === request.body.password) {
       response.cookie("user", user.email);
+      response.cookie("display_welcome_message", true);
       response.redirect("/dashboard");
     } else {
       const errorContextData = { ...LoginContextData };
@@ -60,7 +63,7 @@ const accounts = {
       response.redirect("/login");
     }
     return user;
-  },
+  }
 };
 
 module.exports = accounts;
