@@ -1,6 +1,6 @@
 "use strict";
 const uuid = require("uuid");
-const stationStore = require("../models/station-store.js");
+const stationStore = require("../models/station-store");
 const contextData = {
       pageTitle: "Station Details",
       navBreadcrumbs: [
@@ -11,7 +11,7 @@ const contextData = {
 const station = {
   index(request, response) {
     const stationId = request.params.id;
-    contextData["station"] = stationStore.getStation(stationId);
+    contextData.station = stationStore.getStation(stationId);
     response.render("station", contextData);
   },
   addReading(request, response) {
@@ -28,9 +28,9 @@ const station = {
       stationStore.addReading(stationId, reading);
       response.redirect("/stations/" + stationId);
     } catch (e) {
-      contextData["station"] = stationStore.getStation(stationId);
-      contextData["error"] = e;
-      response.render("station", contextData);
+      const errorContextData = {...contextData}
+      errorContextData.error = e;
+      response.render("station", errorContextData);
     }
   },
 };

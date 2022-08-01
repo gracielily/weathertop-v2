@@ -1,12 +1,14 @@
 "use strict";
 const uuid = require("uuid");
 const stationStore = require("../models/station-store.js");
+const account = require("./account.js");
 
 const dashboard = {
   index(request, response) {
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const viewData = {
       pageTitle: "Dashboard",
-      stations: stationStore.getAllStations(),
+      stations: stationStore.getStationsForUser(user.id),
     };
     response.render("dashboard", viewData);
   },

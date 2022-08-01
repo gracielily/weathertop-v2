@@ -1,9 +1,24 @@
 <nav class="ui menu">
-    <header class="ui header item"><a href="/" id="home"><i class="sun cloud icon"></i>WeatherTop </a></header>
-    <div class="right menu">
-        <a class="item" href="/dashboard" id="dashboard"> Dashboard </a>
-        <a class="item" href="/about" id="about"> About </a>
+  <header class="ui header item"><a href="/" id="home"><i class="sun cloud icon"></i>WeatherTop </a></header>
+  {{#unless hideLinks}}
+  <div class="right menu">
+    {{#if isAuthUser}}
+    <a class="item" href="/dashboard" id="dashboard"> Dashboard </a>
+    <a class="item" href="/about" id="about"> About </a>
+    <div class="ui simple dropdown item">
+      <i class="user icon"></i>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item" href="/members/${_member?.id}" id="editdetails"> Edit Details </a>
+        <a class="item" href="/logout" id="logout"> Logout </a>
+      </div>
     </div>
+    {{else}}
+    <a class="item" href="/signup" id="signup">Signup</a>
+    <a class="item" href="/login" id="login">Login</a>
+    {{/if}}
+  </div>
+  {{/unless}}
 </nav>
 
 <script>
