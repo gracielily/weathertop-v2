@@ -11,12 +11,15 @@ const account = require("./controllers/account.js");
 
 router.get("/", home.index);
 router.get("/dashboard", dashboard.index);
+router.get("/dashboard/dismiss-welcome", dashboard.dismissWelcomeMessage);
 router.post("/dashboard/addstation", dashboard.addStation);
 router.get("/about", about.index);
 router.get("/stations/:id", station.index);
 router.post("/stations/:id/addreading", station.addReading);
 router.get("/login", account.login);
 router.post("/authenticate", account.authenticate);
+router.get("/signup", account.signup);
+router.post("/register", account.register);
 router.get("/logout", account.logout);
 
 module.exports = router;

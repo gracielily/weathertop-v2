@@ -1,6 +1,7 @@
 "use strict";
 const _ = require("lodash");
 const JsonStore = require("./json-store");
+const userStore = require("./user-store.js");
 
 const stationStore = {
   store: new JsonStore("./models/station-store.json", { stations: [] }),
@@ -19,6 +20,17 @@ const stationStore = {
   },
 
   addStation(station) {
+    const usersIds = userStore.getAllUsers().values('id');
+    const user = userStore.getById(station.userId)
+    if(!user){
+      throw "Must be a valid user";
+    } 
+    
+    const userStations = this.getStationsForUser(user.id)
+    const stationNames = userStations.map((userStation) => userStation.name.toLowerCase())
+    if(stationNames.includes(station.name.toLowerCase())){
+      throw "Station already exists";
+    }
     this.store.add(this.collection, station);
     this.store.save();
   },

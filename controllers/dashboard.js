@@ -6,16 +6,23 @@ const account = require("./account.js");
 const dashboard = {
   index(request, response) {
     const user = account.getLoggedInUserOrRedirect(request, response);
-    const viewData = {
+    const contextData = {
       pageTitle: "Dashboard",
       stations: stationStore.getStationsForUser(user.id),
+      user: user,
     };
-    response.render("dashboard", viewData);
+    const displayWelcomeMsg = request.cookies["display_welcome_message"];
+    if(displayWelcomeMsg) {
+      contextData.displayWelcomeMsg = displayWelcomeMsg;
+    }
+    response.render("dashboard", contextData);
   },
 
   addStation(request, response) {
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const station = {
       id: uuid.v4(),
+      userId: user.id,
       name: request.body.name,
       latitude: Number(request.body.latitude),
       longitude: Number(request.body.longitude),
@@ -31,6 +38,10 @@ const dashboard = {
         error: e,
       });
     }
+  },
+  dismissWelcomeMessage(request, response) {
+    response.clearCookie("display_welcome_message");
+    response.redirect("/dashboard");
   },
 };
 

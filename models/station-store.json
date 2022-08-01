@@ -69,9 +69,17 @@
           "temperature": "2",
           "windSpeed": "100",
           "windDirection": "100",
-          "pressure": "100"
+          "pressure": "200"
         }
       ]
+    },
+    {
+      "id": "05613c1f-3714-44c2-b656-0a491d2fca6d",
+      "userId": "de4d6c46-4a25-49bc-bb27-8c3b9284d20d",
+      "name": "Wexford",
+      "latitude": 60,
+      "longitude": 100,
+      "readings": []
     }
   ]
 }
