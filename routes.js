@@ -13,6 +13,7 @@ router.get("/", home.index);
 router.get("/dashboard", dashboard.index);
 router.get("/dashboard/dismiss-welcome", dashboard.dismissWelcomeMessage);
 router.post("/dashboard/addstation", dashboard.addStation);
+router.get("/dashboard/delete-station/:id", dashboard.deleteStation);
 router.get("/about", about.index);
 router.get("/stations/:id", station.index);
 router.post("/stations/:id/addreading", station.addReading);

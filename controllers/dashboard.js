@@ -43,6 +43,13 @@ const dashboard = {
       });
     }
   },
+  
+  deleteStation(request, response){
+    account.getLoggedInUserOrRedirect(request, response);
+    stationStore.deleteStation(request.params.id);
+    response.redirect("/dashboard");
+  },
+  
   dismissWelcomeMessage(request, response) {
     response.clearCookie("display_welcome_message");
     response.redirect("/dashboard");
