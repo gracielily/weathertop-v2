@@ -16,6 +16,7 @@ router.post("/dashboard/addstation", dashboard.addStation);
 router.get("/about", about.index);
 router.get("/stations/:id", station.index);
 router.post("/stations/:id/addreading", station.addReading);
+router.get("/stations/:id/delete-reading/:readingId", station.deleteReading);
 router.get("/login", account.login);
 router.post("/authenticate", account.authenticate);
 router.get("/signup", account.signup);

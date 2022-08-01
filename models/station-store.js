@@ -20,15 +20,17 @@ const stationStore = {
   },
 
   addStation(station) {
-    const usersIds = userStore.getAllUsers().values('id');
-    const user = userStore.getById(station.userId)
-    if(!user){
+    const usersIds = userStore.getAllUsers().values("id");
+    const user = userStore.getById(station.userId);
+    if (!user) {
       throw "Must be a valid user";
-    } 
-    
-    const userStations = this.getStationsForUser(user.id)
-    const stationNames = userStations.map((userStation) => userStation.name.toLowerCase())
-    if(stationNames.includes(station.name.toLowerCase())){
+    }
+
+    const userStations = this.getStationsForUser(user.id);
+    const stationNames = userStations.map((userStation) =>
+      userStation.name.toLowerCase()
+    );
+    if (stationNames.includes(station.name.toLowerCase())) {
       throw "Station already exists";
     }
     this.store.add(this.collection, station);
@@ -45,6 +47,15 @@ const stationStore = {
       throw "Wind Speed must be between 0 and 117";
     }
     station.readings.push(reading);
+    this.store.save();
+  },
+
+  deleteReading(stationId, readingId) {
+    const station = this.getStation(stationId);
+    const reading = station.readings.find((reading) => {
+      reading.id === readingId;
+    });
+    _.remove(station.readings, { id: readingId });
     this.store.save();
   },
 };
