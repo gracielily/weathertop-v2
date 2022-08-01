@@ -1,7 +1,8 @@
 {
-  "stationCollection": [
+  "stations": [
     {
-      "id": "01",
+      "id": "6c5aa44b-f8bc-4d30-911c-3710603c3b94",
+      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
       "name": "Tramore",
       "latitude": 100,
       "longitude": 100,
@@ -41,6 +42,7 @@
     },
     {
       "id": "3e5aa44b-f8bc-4d30-911c-3710203c3a83",
+      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
       "name": "Wexford",
       "latitude": 100.47298,
       "longitude": 200.0834023,
@@ -68,22 +70,6 @@
           "windSpeed": "100",
           "windDirection": "100",
           "pressure": "100"
-        }
-      ]
-    },
-    {
-      "id": "02ca0bb6-40b5-4809-aec7-d8a6c0ad1146",
-      "name": "Donegal",
-      "latitude": -19.8302,
-      "longitude": 150.984,
-      "readings": [
-        {
-          "id": "1647ae2c-d15b-4953-a6d1-16a223b262b6",
-          "code": "200",
-          "temperature": 10,
-          "windSpeed": 100,
-          "windDirection": 100,
-          "pressure": 100
         }
       ]
     }

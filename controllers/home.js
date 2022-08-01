@@ -1,11 +1,13 @@
 "use strict";
+const account = require("./account.js");
 
 const home = {
   index(request, response) {
-    const viewData = {
+    account.getLoggedInUserOrRedirect(request, response);
+    const contextData = {
       pageTitle: "WeatherTop",
     };
-    response.render("home", viewData);
+    response.render("home", contextData);
   },
 };
 
