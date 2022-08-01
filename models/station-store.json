@@ -9,6 +9,7 @@
       "readings": [
         {
           "id": "01",
+          "timestamp": "2022-08-01T15:24:14.107Z",
           "code": 800,
           "temperature": 10.5,
           "windSpeed": 32.5,
@@ -17,6 +18,7 @@
         },
         {
           "id": "02",
+          "timestamp": "2022-08-01T15:24:14.107Z",
           "code": 600,
           "temperature": 22,
           "windSpeed": 40,
@@ -25,6 +27,7 @@
         },
         {
           "id": "03",
+          "timestamp": "2022-08-01T15:24:14.107Z",
           "code": "200",
           "temperature": "10",
           "windSpeed": "100",
@@ -33,10 +36,29 @@
         },
         {
           "code": "300",
+          "timestamp": "2022-08-01T15:24:14.107Z",
           "temperature": "20",
           "windSpeed": "100",
           "windDirection": "10",
           "pressure": "10"
+        },
+        {
+          "id": "164be9a7-d435-4184-b8a2-6b1b301ef5e2",
+          "timestamp": "2022-08-01T16:08:41.447Z",
+          "code": "300",
+          "temperature": 10,
+          "windSpeed": 10,
+          "windDirection": 10,
+          "pressure": 10
+        },
+        {
+          "id": "ba772266-dd51-4631-9c24-c00d029b6f4a",
+          "timestamp": "2022-08-01T16:08:58.755Z",
+          "code": "200",
+          "temperature": 10,
+          "windSpeed": 10,
+          "windDirection": 10,
+          "pressure": 10
         }
       ]
     },
@@ -49,6 +71,7 @@
       "readings": [
         {
           "id": "06dd3e5b-e699-4bb2-814d-3ef34bfd7fcd",
+          "timestamp": "2022-08-01T15:24:14.107Z",
           "code": "300",
           "temperature": "20",
           "windSpeed": "20",
@@ -57,7 +80,8 @@
         },
         {
           "id": "e1b5ea9b-4ac2-4b5f-8e3c-b98111a0f5bd",
-          "code": "100",
+          "timestamp": "2022-08-01T15:24:14.107Z",
+          "code": "200",
           "temperature": "10",
           "windSpeed": "10",
           "windDirection": "10",
@@ -65,6 +89,7 @@
         },
         {
           "id": "450f1df6-7f3d-4968-a1c8-69a9cef1f87a",
+          "timestamp": "2022-08-01T16:24:14.107Z",
           "code": "500",
           "temperature": "2",
           "windSpeed": "100",

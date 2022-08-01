@@ -209,6 +209,13 @@ app.engine(
       },
       toFixed: (value) => {
         return value.toFixed(3);
+      },
+      formatTimestamp: (timestampString) => {
+        const date = new Date(timestampString);
+        const displayDate = date.toISOString().split('T')[0];
+        const displayTime = date.toLocaleTimeString([], { hour12: false });
+        return displayDate + " " + displayTime;
+      
       }
     },
   })

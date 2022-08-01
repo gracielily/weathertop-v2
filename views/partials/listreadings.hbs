@@ -3,6 +3,7 @@
   <thead>
   <tr>
     <!-- TODO: Add Date/Time -->
+    <th>Date/Time</th>
     <th>Code</th>
     <th>Temp</th>
     <th>Wind Speed</th>
@@ -13,6 +14,7 @@
   <tbody>
   {{#each readings}}
   <tr>
+    <td>{{formatTimestamp timestamp}}</td>
     <td>{{code}}</td>
     <td>{{temperature}}</td>
     <td>{{windSpeed}}</td>
