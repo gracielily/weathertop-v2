@@ -12,14 +12,14 @@
       <label for="latitude">Latitude</label>
       <div class="ui left icon input">
         <i class="map marker alternate icon"></i>
-        <input id="latitude" name="latitude" placeholder="00.00" required type="number">
+        <input type="number" name="latitude" min="-85" max="85" step=".000001">
       </div>
     </div>
     <div class="field">
       <label for="longitude">Longitude</label>
       <div class="ui left icon input">
         <i class="map marker alternate icon"></i>
-        <input id="longitude" name="longitude" placeholder="00.00" required type="number">
+        <input type="number" name="longitude" min="-180" max="180" step=".000001">
       </div>
     </div>
     <button class="ui submit button blue"><i class="plus icon"></i>Submit Station</button>

@@ -6,8 +6,8 @@
         <div class="ui grid">
           <div class="ten wide column">
             <h3>{{capitilize station.name}}</h3>
-            <p>Lat: {{station.latitude}}</p>
-            <p>Lng: {{station.longitude}}</p>
+            <p>Lat: {{toFixed station.latitude}}</p>
+            <p>Lng: {{toFixed station.longitude}}</p>
           </div>
           <div class="six wide column">
             <i class="map marker alternate icon"></i>
@@ -16,13 +16,14 @@
       </div>
     </div>
   </div>
+  {{#with (last readings)}}
   <!-- Weather Details -->
   <div class="column">
     <div class="ui fluid card">
       <div class="content">
         <div class="ui grid">
+          {{#with (weatherCodeDisplay code)}}
           <div class="ten wide column">
-            {{#with (mapCodetoWeather reading.code)}}
             <h3>Weather</h3>
             <p>{{label}}</p>
           </div>
@@ -43,12 +44,14 @@
         <div class="ui grid">
           <div class="ten wide column">
             <h3>Temp</h3>
-            <p>{{reading.temperature}} C</p>
-            <p>{{reading.temperature}} F</p>
+            <p>{{temperature}} C</p>
+            <p>{{asFahrenheit temperature}} F</p>
+            <p>Max:{{getMax ../readings "temperature"}}</p>
+            <p>Min: {{getMin ../readings "temperature"}}</p>
           </div>
           <div class="six wide column">
             <div class="reading-icon">
-              <i class="{{tempIcon reading.temperature}} icon"></i>
+              <i class="{{tempIcon temperature}} icon"></i>
             </div>
           </div>
         </div>
@@ -62,15 +65,17 @@
         <div class="ui grid">
           <div class="ten wide column">
             <h3>Wind</h3>
-            <p>{{toBeaufort reading.windSpeed}}</p>
-            <p>{{beaufortLabel (toBeaufort reading.windSpeed)}}</p>
-            <p>{{windCompassLabel (windCompass reading.windDirection)}}</p>
+            <p>{{toBeaufort windSpeed}}</p>
+            <p>{{beaufortLabel (toBeaufort windSpeed)}}</p>
+            <p>{{windCompassLabel (windCompass windDirection)}}</p>
             <p>Feels Like: </p>
-            <p>{{windChill reading.temperature reading.windSpeed}}</p>
+            <p>{{windChill temperature windSpeed}}</p>
+            <p>Max: {{getMax ../readings "windSpeed"}}</p>
+            <p>Min: {{getMin ../readings "windSpeed"}}</p>
           </div>
           <div class="six wide column">
             <div class="reading-icon">
-              <i class="icon {{windIcon reading.windSpeed}}"></i>
+              <i class="icon {{windIcon windSpeed}}"></i>
             </div>
           </div>
         </div>
@@ -84,7 +89,9 @@
         <div class="ui grid">
           <div class="ten wide column">
             <h3>Pressure</h3>
-            <p>{{reading.pressure}} hpa</p>
+            <p>{{pressure}} hpa</p>
+            <p>Max: {{getMax ../readings "pressure"}}</p>
+            <p>Min: {{getMin ../readings "pressure"}}</p>
           </div>
           <div class="six wide column">
             <div class="reading-icon">
@@ -95,4 +102,5 @@
       </div>
     </div>
   </div>
+  {{/with}}
 </section>

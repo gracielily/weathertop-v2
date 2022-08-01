@@ -29,7 +29,7 @@ app.engine(
       capitilize: (val) => {
         return val.charAt(0).toUpperCase() + val.slice(1);
       },
-      mapCodetoWeather: (weatherCode) => {
+      weatherCodeDisplay: (weatherCode) => {
         const weatherMap = {
           100: {
             label: "Clear",
@@ -77,6 +77,9 @@ app.engine(
         } else {
           return "thermometer";
         }
+      },
+      asFahrenheit: (temperature) => {
+        return temperature * 9 / 5 + 32;
       },
       toBeaufort: (windSpeed) => {
         if (windSpeed == 1) {
@@ -196,6 +199,17 @@ app.engine(
           ) / 10
         );
       },
+      getMax: (readings, key) => {
+        const values = readings.map((reading) => reading[key]);
+        return Math.max(...values);
+      },
+      getMin: (readings, key) => {
+        const values = readings.map((reading) => reading[key]);
+        return Math.min(...values);
+      },
+      toFixed: (value) => {
+        return value.toFixed(3);
+      }
     },
   })
 );

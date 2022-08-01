@@ -42,8 +42,8 @@
     {
       "id": "3e5aa44b-f8bc-4d30-911c-3710203c3a83",
       "name": "Wexford",
-      "latitude": "200",
-      "longitude": "200",
+      "latitude": 100.47298,
+      "longitude": 200.0834023,
       "readings": [
         {
           "id": "06dd3e5b-e699-4bb2-814d-3ef34bfd7fcd",
@@ -68,6 +68,22 @@
           "windSpeed": "100",
           "windDirection": "100",
           "pressure": "100"
+        }
+      ]
+    },
+    {
+      "id": "02ca0bb6-40b5-4809-aec7-d8a6c0ad1146",
+      "name": "Donegal",
+      "latitude": -19.8302,
+      "longitude": 150.984,
+      "readings": [
+        {
+          "id": "1647ae2c-d15b-4953-a6d1-16a223b262b6",
+          "code": "200",
+          "temperature": 10,
+          "windSpeed": 100,
+          "windDirection": 100,
+          "pressure": 100
         }
       ]
     }

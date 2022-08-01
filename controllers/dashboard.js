@@ -15,8 +15,8 @@ const dashboard = {
     const station = {
       id: uuid.v4(),
       name: request.body.name,
-      latitude: request.body.latitude,
-      longitude: request.body.longitude,
+      latitude: Number(request.body.latitude),
+      longitude: Number(request.body.longitude),
       readings: [],
     };
     try {
