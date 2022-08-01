@@ -21,6 +21,7 @@ const station = {
     const stationId = request.params.id;
     const reading = {
       id: uuid.v4(),
+      timestamp: new Date().toJSON(),
       code: request.body.code,
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
