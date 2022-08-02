@@ -6,7 +6,53 @@
       "name": "Wexford",
       "latitude": 10,
       "longitude": 10,
-      "readings": []
+      "readings": [
+        {
+          "id": "567200a2-2b82-46f7-a7bb-89aae79e4053",
+          "timestamp": "2022-08-02T14:44:05.748Z",
+          "code": 500,
+          "temperature": 24.41,
+          "windSpeed": 2.54,
+          "windDirection": 215,
+          "pressure": 1011
+        },
+        {
+          "id": "02464a5f-1326-4031-b699-084da4fa7fe7",
+          "timestamp": "2022-08-02T14:46:51.630Z",
+          "code": 500,
+          "temperature": 24.41,
+          "windSpeed": 2.54,
+          "windDirection": 215,
+          "pressure": 1011
+        },
+        {
+          "id": "f9f6c8fb-042a-4e12-84ad-9c8ee55cdd48",
+          "timestamp": "2022-08-02T14:58:25.872Z",
+          "code": 500,
+          "temperature": 24.41,
+          "windSpeed": 2.54,
+          "windDirection": 215,
+          "pressure": 1011
+        },
+        {
+          "id": "dd8d7608-ec11-427d-b622-8c45ffc501b2",
+          "timestamp": "2022-08-02T14:58:32.065Z",
+          "code": 500,
+          "temperature": 24.41,
+          "windSpeed": 2.54,
+          "windDirection": 215,
+          "pressure": 1011
+        },
+        {
+          "id": "16491330-5d5a-47b3-abf3-2acf88642aa6",
+          "timestamp": "2022-08-02T14:59:31.650Z",
+          "code": 500,
+          "temperature": 24.41,
+          "windSpeed": 2.54,
+          "windDirection": 215,
+          "pressure": 1011
+        }
+      ]
     }
   ]
 }
