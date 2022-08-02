@@ -51,8 +51,34 @@
           "windSpeed": 2.54,
           "windDirection": 215,
           "pressure": 1011
+        },
+        {
+          "id": "7e9d9dcc-5513-433c-8ccf-c83734a712de",
+          "timestamp": "2022-08-02T18:57:35.638Z",
+          "code": 804,
+          "temperature": 21.81,
+          "windSpeed": 1.37,
+          "windDirection": 174,
+          "pressure": 1012
+        },
+        {
+          "id": "0f5aae0f-4c77-4fde-9a38-4c61b3a7f6df",
+          "timestamp": "2022-08-02T18:57:36.107Z",
+          "code": 804,
+          "temperature": 21.81,
+          "windSpeed": 1.37,
+          "windDirection": 174,
+          "pressure": 1012
         }
       ]
+    },
+    {
+      "id": "17f84cb6-850b-4a87-8e6d-1787c0cd1806",
+      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
+      "name": "Waterford",
+      "latitude": 20,
+      "longitude": 20,
+      "readings": []
     }
   ]
 }

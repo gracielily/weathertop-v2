@@ -248,6 +248,9 @@ app.engine(
         const displayTime = date.toLocaleTimeString([], { hour12: false });
         return displayDate + " " + displayTime;
       },
+      toJson: (obj) => {
+        return JSON.stringify(obj);
+      }
     },
   })
 );
