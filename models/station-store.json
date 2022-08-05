@@ -69,6 +69,15 @@
           "windSpeed": 1.37,
           "windDirection": 174,
           "pressure": 1012
+        },
+        {
+          "id": "7b29a364-a06f-4a64-bcfb-6f1fb8672ff8",
+          "timestamp": "2022-08-05T11:55:02.784Z",
+          "code": "100",
+          "temperature": 1,
+          "windSpeed": 20,
+          "windDirection": 200,
+          "pressure": 10
         }
       ]
     },

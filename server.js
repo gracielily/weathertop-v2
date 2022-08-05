@@ -23,11 +23,6 @@ app.engine(
     extname: ".hbs",
     defaultLayout: "main",
     helpers: {
-      section: function(name, options){ 
-                if(!this._sections) this._sections = {};
-                this._sections[name] = options.fn(this); 
-                return null;
-      },
       last: (arr) => {
         return arr[arr.length - 1];
       },
