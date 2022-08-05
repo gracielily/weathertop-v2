@@ -8,67 +8,58 @@
       "longitude": -6.4601397,
       "readings": [
         {
-          "id": "567200a2-2b82-46f7-a7bb-89aae79e4053",
-          "timestamp": "2022-08-02T14:44:05.748Z",
-          "code": 500,
-          "temperature": 24.41,
-          "windSpeed": 2.54,
-          "windDirection": 215,
-          "pressure": 1011
+          "id": "7b29a364-a06f-4a64-bcfb-6f1fb8672ff8",
+          "timestamp": "2022-08-05T11:55:02.784Z",
+          "code": "100",
+          "temperature": 1,
+          "windSpeed": 20,
+          "windDirection": 200,
+          "pressure": 10
         },
         {
-          "id": "02464a5f-1326-4031-b699-084da4fa7fe7",
-          "timestamp": "2022-08-02T14:46:51.630Z",
-          "code": 500,
-          "temperature": 24.41,
-          "windSpeed": 2.54,
-          "windDirection": 215,
-          "pressure": 1011
+          "id": "5cc6f9a6-bc83-43b3-b0c4-cd5cea5cac39",
+          "timestamp": "2022-08-06T08:02:44.269Z",
+          "code": "200",
+          "temperature": 10,
+          "windSpeed": 100,
+          "windDirection": 10,
+          "pressure": 100
         },
         {
-          "id": "f9f6c8fb-042a-4e12-84ad-9c8ee55cdd48",
-          "timestamp": "2022-08-02T14:58:25.872Z",
-          "code": 500,
-          "temperature": 24.41,
-          "windSpeed": 2.54,
-          "windDirection": 215,
-          "pressure": 1011
+          "id": "00334881-58fb-4b26-9e0e-59f740473a0e",
+          "timestamp": "2022-08-06T08:03:04.162Z",
+          "code": "300",
+          "temperature": 20,
+          "windSpeed": 100,
+          "windDirection": 100,
+          "pressure": 100
         },
         {
-          "id": "dd8d7608-ec11-427d-b622-8c45ffc501b2",
-          "timestamp": "2022-08-02T14:58:32.065Z",
-          "code": 500,
-          "temperature": 24.41,
-          "windSpeed": 2.54,
-          "windDirection": 215,
-          "pressure": 1011
+          "id": "2b42b98a-43dc-4a10-9462-418da001dda5",
+          "timestamp": "2022-08-06T08:45:24.762Z",
+          "code": "300",
+          "temperature": 30,
+          "windSpeed": 5,
+          "windDirection": 100,
+          "pressure": 6
         },
         {
-          "id": "16491330-5d5a-47b3-abf3-2acf88642aa6",
-          "timestamp": "2022-08-02T14:59:31.650Z",
-          "code": 500,
-          "temperature": 24.41,
-          "windSpeed": 2.54,
-          "windDirection": 215,
-          "pressure": 1011
+          "id": "5886bf10-d421-4bc3-ac81-c6502523b042",
+          "timestamp": "2022-08-06T08:45:58.724Z",
+          "code": "400",
+          "temperature": 40,
+          "windSpeed": 20,
+          "windDirection": 100,
+          "pressure": 10
         },
         {
-          "id": "7e9d9dcc-5513-433c-8ccf-c83734a712de",
-          "timestamp": "2022-08-02T18:57:35.638Z",
-          "code": 804,
-          "temperature": 21.81,
-          "windSpeed": 1.37,
-          "windDirection": 174,
-          "pressure": 1012
-        },
-        {
-          "id": "0f5aae0f-4c77-4fde-9a38-4c61b3a7f6df",
-          "timestamp": "2022-08-02T18:57:36.107Z",
-          "code": 804,
-          "temperature": 21.81,
-          "windSpeed": 1.37,
-          "windDirection": 174,
-          "pressure": 1012
+          "id": "8cdd36fd-9fa9-4537-9b9e-2673d391ea36",
+          "timestamp": "2022-08-06T08:59:26.054Z",
+          "code": "100",
+          "temperature": 30,
+          "windSpeed": 20,
+          "windDirection": 5,
+          "pressure": 5
         }
       ]
     },
