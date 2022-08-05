@@ -4,8 +4,8 @@
       "id": "673e160b-686d-4f52-8271-5612e73f1958",
       "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
       "name": "Wexford",
-      "latitude": 10,
-      "longitude": 10,
+      "latitude": 52.3367671,
+      "longitude": -6.4601397,
       "readings": [
         {
           "id": "567200a2-2b82-46f7-a7bb-89aae79e4053",
@@ -76,8 +76,16 @@
       "id": "17f84cb6-850b-4a87-8e6d-1787c0cd1806",
       "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
       "name": "Waterford",
-      "latitude": 20,
-      "longitude": 20,
+      "latitude": 52.2609997,
+      "longitude": -7.1119081,
+      "readings": []
+    },
+    {
+      "id": "2e5d6b13-75c3-43df-998c-4b923757be96",
+      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
+      "name": "Dublin",
+      "latitude": 53.349,
+      "longitude": -6.262,
       "readings": []
     }
   ]
