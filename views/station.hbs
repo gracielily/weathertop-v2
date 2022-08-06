@@ -30,7 +30,7 @@
   <p>
     Below is a graph representing the historical weather trends for this station.
   </p>
-<canvas id="trendsGraph" height="200"></canvas>
+<canvas id="trendsGraph" height="120"></canvas>
 </section>
 {{else}}
   <!-- No Readings Message -->
@@ -50,8 +50,12 @@
 <script>
 const ctx = document.getElementById('trendsGraph').getContext('2d');
 const station = {{{toJson station}}}
-const readings = station.readings; 
-   
+const readings = station.readings;
+  // convert timestamps to use browser timezone
+const timestampsDOM = document.getElementsByClassName("timestamps");
+for (let i = 0; i < timestampsDOM.length; i++) {
+    timestampsDOM[i].innerHTML = new Date(timestampsDOM[i].innerHTML).toLocaleString("en-GB")
+}
 const options = {
   type: 'line',
   data: {

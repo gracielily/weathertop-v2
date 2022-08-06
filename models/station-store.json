@@ -60,6 +60,24 @@
           "windSpeed": 20,
           "windDirection": 5,
           "pressure": 5
+        },
+        {
+          "id": "73adabbd-d45c-4fc6-8a25-e187252d699f",
+          "timestamp": "2022-08-06T12:42:10.993Z",
+          "code": "600",
+          "temperature": 2,
+          "windSpeed": 50,
+          "windDirection": 200,
+          "pressure": 40
+        },
+        {
+          "id": "10a2187f-a31f-457d-8a91-bee6eb4fd18b",
+          "timestamp": "2022-08-06T17:36:07.487Z",
+          "code": "200",
+          "temperature": 15,
+          "windSpeed": 30,
+          "windDirection": 200,
+          "pressure": 60
         }
       ]
     },

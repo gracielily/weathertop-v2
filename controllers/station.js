@@ -3,21 +3,25 @@ const uuid = require("uuid");
 const stationStore = require("../models/station-store");
 const account = require("./account.js");
 const axios = require("axios");
-const contextData = {
+const converters = require("../utils/converters.js");
+
+let contextData = {
   pageTitle: "Station Details",
   navBreadcrumbs: [
     { title: "Dashboard", link: "/dashboard" },
     { title: "Station Details" },
   ],
 };
+
 const station = {
   index(request, response) {
     account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
-    contextData.station = stationStore.getStation(stationId);
-    if (!contextData.station) {
+    const station = stationStore.getStation(stationId);
+    if (!station) {
       response.render("404");
     }
+    contextData.station = converters.toStationDisplayData(station);
     response.render("station", contextData);
   },
   addReading(request, response) {
