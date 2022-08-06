@@ -22,7 +22,7 @@
     <div class="ui fluid card">
       <div class="content">
         <div class="ui grid">
-          {{#with (weatherCodeDisplay code)}}
+          {{#with weather}}
           <div class="ten wide column">
             <h3>Weather</h3>
             <p>{{label}}</p>
@@ -45,15 +45,17 @@
           <div class="ten wide column">
             <h3>Temp</h3>
             <p>{{temperature}} C</p>
-            <p>{{asFahrenheit temperature}} F</p>
-            <p>Max:{{getMax ../station.readings "temperature"}}</p>
-            <p>Min: {{getMin ../station.readings "temperature"}}</p>
+            <p>{{tempFahrenheit}} F</p>
+            <p>Max: {{../station.maxTemp}}</p>
+            <p>Min: {{../station.minTemp}}</p>
           </div>
           <div class="six wide column">
             <div class="reading-icon">
-              <i class="{{tempIcon temperature}} icon"></i>
+              <i class="{{tempIcon}} icon"></i>
             </div>
-            {{> displaytrend readings=../station.readings trendLookup="temperature"}}
+            <div class="reading-icon">
+              <i class="{{../station.trendTempIcon}} icon"></i>
+          </div>
           </div>
         </div>
       </div>
@@ -66,19 +68,23 @@
         <div class="ui grid">
           <div class="ten wide column">
             <h3>Wind</h3>
-            <p>{{toBeaufort windSpeed}}</p>
-            <p>{{beaufortLabel (toBeaufort windSpeed)}}</p>
-            <p>{{windCompassLabel (windCompass windDirection)}}</p>
+            {{#with beaufort}}
+            <p>{{bft}}</p>
+            <p>{{label}}</p>
+            {{/with}}
+            <p>{{windCompass}}</p>
             <p>Feels Like: </p>
-            <p>{{windChill temperature windSpeed}}</p>
-            <p>Max: {{getMax ../station.readings "windSpeed"}}</p>
-            <p>Min: {{getMin ../station.readings "windSpeed"}}</p>
+            <p>{{windChill}}</p>
+            <p>Max: {{../station.maxWindSpeed}}</p>
+            <p>Min: {{../station.minWindSpeed}}</p>
           </div>
           <div class="six wide column">
             <div class="reading-icon">
-              <i class="icon {{windIcon windSpeed}}"></i>
+              <i class="icon {{windIcon}}"></i>
             </div>
-            {{> displaytrend readings=../station.readings trendLookup="windSpeed"}}
+            <div class="reading-icon">
+              <i class="{{../station.trendWindSpeedIcon}} icon"></i>
+          </div>
           </div>
         </div>
       </div>
@@ -92,14 +98,16 @@
           <div class="ten wide column">
             <h3>Pressure</h3>
             <p>{{pressure}} hpa</p>
-            <p>Max: {{getMax ../station.readings "pressure"}}</p>
-            <p>Min: {{getMin ../station.readings "pressure"}}</p>
+            <p>Max: {{../station.maxPressure}}</p>
+            <p>Min: {{../station.minPressure}}</p>
           </div>
           <div class="six wide column">
             <div class="reading-icon">
               <i class="water icon"></i>
             </div>
-            {{> displaytrend readings=../station.readings trendLookup="pressure"}}
+            <div class="reading-icon">
+              <i class="{{../station.trendPressureIcon}} icon"></i>
+          </div>
           </div>
         </div>
       </div>

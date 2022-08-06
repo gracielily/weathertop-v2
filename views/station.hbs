@@ -30,7 +30,7 @@
   <p>
     Below is a graph representing the historical weather trends for this station.
   </p>
-<canvas id="trendsGraph" height="200"></canvas>
+<canvas id="trendsGraph" height="120"></canvas>
 </section>
 {{else}}
   <!-- No Readings Message -->
@@ -50,8 +50,7 @@
 <script>
 const ctx = document.getElementById('trendsGraph').getContext('2d');
 const station = {{{toJson station}}}
-const readings = station.readings; 
-   
+const readings = station.readings;
 const options = {
   type: 'line',
   data: {
@@ -59,7 +58,7 @@ const options = {
       label: 'Temperature',
       data: readings.map((reading) => {
         return {
-          x: new Date(reading.timestamp),
+          x: new Date(reading.displayTimestamp.dateTime),
           y: reading.windSpeed
         }
       }),
@@ -73,7 +72,7 @@ const options = {
       label: 'Wind',
       data: readings.map((reading) => {
         return {
-        x: new Date(reading.timestamp),
+        x: new Date(reading.displayTimestamp.dateTime),
         y: reading.temperature
         }
       }),
@@ -87,7 +86,7 @@ const options = {
       label: 'Pressure',
       data: readings.map((reading) => {
         return {
-        x: new Date(reading.timestamp),
+        x: new Date(reading.displayTimestamp.dateTime),
         y: reading.pressure
         }
       }),
@@ -115,4 +114,5 @@ const options = {
 }
   
 const trendGraph = new Chart(ctx, options);
+  console.log(station)
 </script>

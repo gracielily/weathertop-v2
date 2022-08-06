@@ -2,7 +2,6 @@
 <table class="ui fixed table">
   <thead>
   <tr>
-    <!-- TODO: Add Date/Time -->
     <th>Date/Time</th>
     <th>Code</th>
     <th>Temp</th>
@@ -15,7 +14,7 @@
   <tbody>
   {{#each station.readings}}
   <tr>
-    <td>{{formatTimestamp timestamp}}</td>
+    <td class="timestamps">{{displayTimestamp.dateTime}} ({{displayTimestamp.timezone}})</td>
     <td>{{code}}</td>
     <td>{{temperature}}</td>
     <td>{{windSpeed}}</td>

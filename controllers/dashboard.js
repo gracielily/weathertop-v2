@@ -2,6 +2,11 @@
 const uuid = require("uuid");
 const stationStore = require("../models/station-store.js");
 const account = require("./account.js");
+const converters = require("../utils/converters.js");
+
+let contextData = {
+  pageTitle: "Dashboard",
+};
 
 const dashboard = {
   index(request, response) {
@@ -10,11 +15,9 @@ const dashboard = {
     stations.sort((x, y) =>
       x.name.toLowerCase().localeCompare(y.name.toLowerCase())
     );
-    const contextData = {
-      pageTitle: "Dashboard",
-      stations: stations,
-      user: user,
-    };
+    stations.map((station) => converters.toStationDisplayData(station));
+    contextData.stations = stations
+    contextData.user = user
     const displayWelcomeMsg = request.cookies["display_welcome_message"];
     if (displayWelcomeMsg) {
       contextData.displayWelcomeMsg = displayWelcomeMsg;
@@ -36,20 +39,18 @@ const dashboard = {
       stationStore.addStation(station);
       response.redirect("/dashboard");
     } catch (e) {
-      response.render("dashboard", {
-        pageTitle: "Dashboard",
-        stations: stationStore.getAllStations(),
-        error: e,
-      });
+      const errorContextData = { ...contextData };
+      errorContextData.error = e;
+      response.render("dashboard", errorContextData);
     }
   },
-  
-  deleteStation(request, response){
+
+  deleteStation(request, response) {
     account.getLoggedInUserOrRedirect(request, response);
     stationStore.deleteStation(request.params.id);
     response.redirect("/dashboard");
   },
-  
+
   dismissWelcomeMessage(request, response) {
     response.clearCookie("display_welcome_message");
     response.redirect("/dashboard");
