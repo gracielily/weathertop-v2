@@ -3,9 +3,10 @@ const account = require("./account.js");
 
 const home = {
   index(request, response) {
-    account.getLoggedInUserOrRedirect(request, response);
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const contextData = {
       pageTitle: "WeatherTop",
+      user: user,
     };
     response.render("home", contextData);
   },

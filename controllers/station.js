@@ -15,11 +15,11 @@ let contextData = {
 
 const station = {
   index(request, response) {
-    account.getLoggedInUserOrRedirect(request, response);
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
-    const station = stationStore.getStation(stationId);
+    const station = stationStore.getStationForUser(stationId, user.id);
     if (!station) {
-      response.render("404");
+      return response.render("404");
     }
     contextData.station = converters.toStationDisplayData(station);
     response.render("station", contextData);

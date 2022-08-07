@@ -500,16 +500,33 @@
           "temperature": 2,
           "windSpeed": 300,
           "windDirection": 100,
-          "pressure": 100
+          "pressure": 100,
+          "displayTimestamp": {
+            "dateTime": "2022-08-07 18:01:50",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Clear",
+            "icon": "sun"
+          },
+          "tempFahrenheit": 35.6,
+          "tempIcon": "temperature teal low",
+          "beaufort": {
+            "bft": "Unknown",
+            "label": "Unknown"
+          },
+          "windChill": -12,
+          "windCompass": "UnknownEast",
+          "windIcon": "red wind"
         }
       ],
       "maxTemp": 20.62,
-      "minTemp": 5,
-      "maxWindSpeed": 200,
+      "minTemp": 2,
+      "maxWindSpeed": 300,
       "minWindSpeed": 3.6,
       "maxPressure": 1026,
       "minPressure": 5,
-      "trendTempIcon": "angle double up red",
+      "trendTempIcon": "angle double down teal",
       "trendWindSpeedIcon": "angle double up red",
       "trendPressureIcon": "arrows alternate horizontal green"
     },
@@ -553,6 +570,122 @@
       "minWindSpeed": 4.63,
       "maxPressure": 1026,
       "minPressure": 1026
+    },
+    {
+      "id": "9f2b643e-6114-4cc9-b663-1b2debdc0425",
+      "userId": "e8c85b47-fcbc-4dae-9420-8e3f0b235e5d",
+      "name": "Galway",
+      "latitude": 53.26463795022871,
+      "longitude": -9.053833074867727,
+      "readings": [
+        {
+          "id": "8c55642f-3bff-4870-ade8-f0265ac895b8",
+          "timestamp": "2022-08-07T19:01:46.937Z",
+          "code": "100",
+          "temperature": 15.63,
+          "windSpeed": 4.31,
+          "windDirection": 257,
+          "pressure": 1027,
+          "displayTimestamp": {
+            "dateTime": "2022-08-07 19:01:46",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Clear",
+            "icon": "sun"
+          },
+          "tempFahrenheit": 60.134,
+          "tempIcon": "thermometer",
+          "beaufort": {
+            "bft": "1 bft",
+            "label": "Light Air"
+          },
+          "windChill": 16.3,
+          "windCompass": "UnknownWest South West",
+          "windIcon": "wind"
+        },
+        {
+          "id": "3dec5549-bed3-4c49-a09e-41915c4490a2",
+          "timestamp": "2022-08-07T19:06:46.927Z",
+          "code": "100",
+          "temperature": 15.63,
+          "windSpeed": 4.31,
+          "windDirection": 257,
+          "pressure": 1027,
+          "displayTimestamp": {
+            "dateTime": "2022-08-07 19:06:46",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Clear",
+            "icon": "sun"
+          },
+          "tempFahrenheit": 60.134,
+          "tempIcon": "thermometer",
+          "beaufort": {
+            "bft": "1 bft",
+            "label": "Light Air"
+          },
+          "windChill": 16.3,
+          "windCompass": "UnknownWest South West",
+          "windIcon": "wind"
+        }
+      ],
+      "maxTemp": 15.63,
+      "minTemp": 15.63,
+      "maxWindSpeed": 4.31,
+      "minWindSpeed": 4.31,
+      "maxPressure": 1027,
+      "minPressure": 1027
+    },
+    {
+      "id": "c9a95095-0c26-4b37-997d-6ec542ff928a",
+      "userId": "e8c85b47-fcbc-4dae-9420-8e3f0b235e5d",
+      "name": "Dublin",
+      "latitude": 53.344484804947356,
+      "longitude": -6.2627563811838645,
+      "readings": [
+        {
+          "id": "cb73dcd8-dda8-4727-8cbd-d2dba9334df3",
+          "timestamp": "2022-08-07T19:07:10.351Z",
+          "code": "200",
+          "temperature": 20.69,
+          "windSpeed": 4.12,
+          "windDirection": 280,
+          "pressure": 1026,
+          "displayTimestamp": {
+            "dateTime": "2022-08-07 19:07:10",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Partial Clouds",
+            "icon": "cloud sun"
+          },
+          "tempFahrenheit": 69.242,
+          "tempIcon": "temperature red high",
+          "beaufort": {
+            "bft": "1 bft",
+            "label": "Light Air"
+          },
+          "windChill": 22,
+          "windCompass": "UnknownWest",
+          "windIcon": "wind"
+        }
+      ],
+      "maxTemp": 20.69,
+      "minTemp": 20.69,
+      "maxWindSpeed": 4.12,
+      "minWindSpeed": 4.12,
+      "maxPressure": 1026,
+      "minPressure": 1026
+    },
+    {
+      "id": "fdffc0ce-222a-4645-9943-d4bcf62a623a",
+      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
+      "name": "Limerick",
+      "latitude": 52.6525618328483,
+      "longitude": -8.597351107746364,
+      "readings": []
     }
   ]
 }

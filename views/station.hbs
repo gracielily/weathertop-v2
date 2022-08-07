@@ -6,8 +6,12 @@
 <section class="ui segment">
   <h2 class="ui center aligned icon header blue">
     <i class="circular eye icon"></i>
-    {{capitilize station.name}} Overview
+    {{capitilize station.name}} Station Overview
   </h2>
+</section>
+<!-- Station Map -->
+<section class="ui segment">
+  <div id="map"></div>
 </section>
 <!-- Reading Nav Link -->
 <section class="ui segment">
@@ -38,7 +42,7 @@
     <i class="lightbulb icon"></i>
     <div class="content">
       <div class="header">
-        No Weather Readings for Station {{capitilize station.name}}
+        No Weather Readings for {{capitilize station.name}} Station
       </div>
       <p>You can create a Reading by filling out the form below.</p>
     </div>
@@ -48,9 +52,11 @@
 {{> createreading station=station error=error}}
 
 <script>
+  const station = {{{toJson station}}}
+  const readings = station.readings;
+  if(readings.length) {
 const ctx = document.getElementById('trendsGraph').getContext('2d');
-const station = {{{toJson station}}}
-const readings = station.readings;
+
 const options = {
   type: 'line',
   data: {
@@ -114,5 +120,14 @@ const options = {
 }
   
 const trendGraph = new Chart(ctx, options);
-  console.log(station)
+  }
+
+const map = L.map('map').setView([station.latitude, station.longitude], 13)
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+let marker = L.marker([station.latitude, station.longitude]).addTo(map);
+marker.bindPopup("<b>"+ station.name +"</b><br/><a href='" + markerUrl + "'>View Details</a>");
 </script>

@@ -60,12 +60,6 @@
   </a>
   </section>
 {{/each}}
-<!-- Stations Map -->
-<section class="ui segment">
-  <h2>Map of Stations</h2>
-  <p>Below you will find a map of stations. Click on the map to populate the form with co-ordinates.</p>
-  <div id="map"></div>
-</section>
 {{else}}
 <div class="ui icon blue message">
   <i class="lightbulb icon"></i>
@@ -76,6 +70,12 @@
   </div>
 </div>
 {{/if}}
+<!-- Stations Map -->
+<section class="ui segment">
+  <h2>Stations Map</h2>
+  <p>Click on the map to populate the form with co-ordinates.</p>
+  <div id="map"></div>
+</section>
 <!-- New Station Form -->
 <section class="ui section " id="newStation">
   {{> createstationform }}
@@ -83,6 +83,7 @@
 
 <script>
 const stations = {{{toJson stations}}}
+// populate the create station form with the co-ordinates
 function onMapClick(e) {
   const createStationForm = document.getElementById("createStationForm")
   createStationForm.elements["latitude"].value = e.latlng.lat
@@ -94,21 +95,36 @@ function onMapClick(e) {
   .openOn(map);
 }
 
-const map = L.map('map').setView([stations[0].latitude, stations[0].longitude], 13)
+//populate the map with station markers
+let latlngs = [];
+let zoom = 8;
+let fitBounds = false;
+const map = L.map('map');
+  
+if(stations.length){
+  stations.forEach((station) => {
+  zoom = 13;
+  fitBounds = stations.length > 1;
+  latlngs.push(L.latLng(station.latitude, station.longitude))
+  let marker = L.marker([station.latitude, station.longitude]).addTo(map);
+  const markerUrl = '/stations/' + station.id;
+  marker.bindPopup("<b>"+ station.name +"</b><br/><a href='" + markerUrl + "'>View Details</a>");
+  })
+} else {
+  // set to the centre of Ireland
+  latlngs = [L.latLng(53.4508514132473, -7.900268621742726)]
+}
+  
+map.setView([latlngs[0].lat, latlngs[0].lng], zoom)
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '© OpenStreetMap'
 }).addTo(map);
 
-  //populate the map with station markers
-const latlngs = []
-stations.forEach((station) => {
-  latlngs.push(L.latLng(station.latitude, station.longitude))
-  let marker = L.marker([station.latitude, station.longitude]).addTo(map);
-  const markerUrl = '/stations/' + station.id;
-  marker.bindPopup("<b>"+ station.name +"</b><br/><a href='" + markerUrl + "'>View Details</a>");
-})
 // set bounds of map to see all map markers
-map.fitBounds(latlngs);
+if(fitBounds){
+  map.fitBounds(latlngs);
+}
+  
 map.on('click', onMapClick);
 </script>
