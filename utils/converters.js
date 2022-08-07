@@ -6,20 +6,7 @@ const analytics = require("./analytics.js");
 const converters = {
   toBeaufortDisplay: (windSpeed) => {
     const bft = analytics.calculateBeaufort(windSpeed);
-    const labelMap = {
-      "0 bft": "Calm",
-      "1 bft": "Light Air",
-      "2 bft": "Light Breeze",
-      "3 bft": "Gentle Breeze",
-      "4 bft": "Moderate Breeze",
-      "5 bft": "Fresh Breeze",
-      "6 bft": "Strong Breeze",
-      "7 bft": "Near Gale",
-      "8 bft": "Gale",
-      "9 bft": "Severe Gale",
-      "10 bft": "Strong Storm",
-      "11 bft": "Violent Storm",
-    };
+    const labelMap = constants.WIND_MAP;
     return {
       bft: bft,
       label: labelMap[bft] ? labelMap[bft] : "Unknown",
@@ -34,60 +21,18 @@ const converters = {
     const compass = analytics.getWindCompass(windDirection);
     let label = "Unknown";
 
-    const compassMap = {
-      N: "North",
-      S: "South",
-      E: "East",
-      W: "West",
-    };
-
     if (compass !== "Unknown") {
       const windCompassLetters = compass.split("");
       windCompassLetters.map((letter) => {
-        label += compassMap[letter] + " ";
+        label += constants.COMPASS_MAP[letter] + " ";
       });
     }
     return label.trim();
   },
 
   toWeatherDisplay: (weatherCode) => {
-    const weatherMap = {
-      100: {
-        label: "Clear",
-        icon: "sun",
-      },
-      200: {
-        label: "Partial Clouds",
-        icon: "cloud sun",
-      },
-      300: {
-        label: "Cloudy",
-        icon: "cloud",
-      },
-      400: {
-        label: "Light Showers",
-        icon: "cloud sun rain",
-      },
-      500: {
-        label: "Heavy Showers",
-        icon: "cloud showers heavy rain",
-      },
-      600: {
-        label: "Rain",
-        icon: "cloud rain",
-      },
-      700: {
-        label: "Snow",
-        icon: "snowflake",
-      },
-      800: {
-        label: "Thunder",
-        icon: "bolt",
-      },
-    };
-
-    return weatherMap[weatherCode]
-      ? weatherMap[weatherCode]
+    return constants.WEATHER_MAP[weatherCode]
+      ? constants.WEATHER_MAP[weatherCode]
       : { label: "Unknown", icon: "question" };
   },
 
@@ -114,10 +59,24 @@ const converters = {
       case constants.RISING:
         return "angle double up red";
       case constants.FALLING:
-        return "angle double up red";
+        return "angle double down teal";
       case constants.STEADY:
         return "arrows alternate horizontal green";
     }
+  },
+
+  toWeatherTopCode(openMapWeatherCode) {
+    // attempt to map code to weathertop code to unify data
+    // some codes do not match weathertop codes so return the original
+    // if they do not match
+    const map = constants.OPEN_MAP_WEATHERTOP_MAPPING;
+    let code = openMapWeatherCode;
+    for (var key in map) {
+      if (map[key].includes(openMapWeatherCode)) {
+        code = key;
+      }
+    }
+    return code;
   },
 
   toReadingDisplayData(reading) {
@@ -125,8 +84,8 @@ const converters = {
     const displayDate = date.toISOString().split("T")[0];
     const displayTime = date.toLocaleTimeString([], { hour12: false });
     reading.displayTimestamp = {
-    dateTime: displayDate + " " + displayTime,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      dateTime: displayDate + " " + displayTime,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     };
     reading.weather = this.toWeatherDisplay(reading.code);
     reading.tempFahrenheit = this.toFahrenheit(reading.temperature);
