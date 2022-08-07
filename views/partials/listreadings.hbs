@@ -14,7 +14,7 @@
   <tbody>
   {{#each station.readings}}
   <tr>
-    <td class="timestamps">{{timestamp}}</td>
+    <td class="timestamps">{{displayTimestamp.dateTime}} ({{displayTimestamp.timezone}})</td>
     <td>{{code}}</td>
     <td>{{temperature}}</td>
     <td>{{windSpeed}}</td>

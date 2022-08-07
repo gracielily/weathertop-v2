@@ -1,9 +1,5 @@
 const converters = require("./converters.js");
 
-const isBetween = (val, min, max) => {
-  return val >= min && val <= max;
-};
-
 const register = function (Handlebars) {
   const helpers = {
     last: (arr) => {
@@ -17,14 +13,6 @@ const register = function (Handlebars) {
     toFixed: (value) => {
       return value.toFixed(3);
     },
-    // formatTimestamp: (timestampString) => {
-    //   const date = new Date(timestampString);
-    //   // server uses UTC so need to convert to irish timezone
-    //   const displayDate = date
-    //     .toLocaleString("en-US", { timeZone: "Europe/Dublin", hour12: false })
-    //     .split(", ");
-    //   return displayDate[0] + " " + displayDate[1];
-    // },
     toJson: (obj) => {
       return JSON.stringify(obj);
     },

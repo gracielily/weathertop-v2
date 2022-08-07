@@ -51,11 +51,6 @@
 const ctx = document.getElementById('trendsGraph').getContext('2d');
 const station = {{{toJson station}}}
 const readings = station.readings;
-  // convert timestamps to use browser timezone
-const timestampsDOM = document.getElementsByClassName("timestamps");
-for (let i = 0; i < timestampsDOM.length; i++) {
-    timestampsDOM[i].innerHTML = new Date(timestampsDOM[i].innerHTML).toLocaleString("en-GB")
-}
 const options = {
   type: 'line',
   data: {
@@ -63,7 +58,7 @@ const options = {
       label: 'Temperature',
       data: readings.map((reading) => {
         return {
-          x: new Date(reading.timestamp),
+          x: new Date(reading.displayTimestamp.dateTime),
           y: reading.windSpeed
         }
       }),
@@ -77,7 +72,7 @@ const options = {
       label: 'Wind',
       data: readings.map((reading) => {
         return {
-        x: new Date(reading.timestamp),
+        x: new Date(reading.displayTimestamp.dateTime),
         y: reading.temperature
         }
       }),
@@ -91,7 +86,7 @@ const options = {
       label: 'Pressure',
       data: readings.map((reading) => {
         return {
-        x: new Date(reading.timestamp),
+        x: new Date(reading.displayTimestamp.dateTime),
         y: reading.pressure
         }
       }),
@@ -119,4 +114,5 @@ const options = {
 }
   
 const trendGraph = new Chart(ctx, options);
+  console.log(station)
 </script>

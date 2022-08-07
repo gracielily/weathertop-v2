@@ -1,41 +1,11 @@
 "use strict";
 
+const constants = require("./constants.js");
 const analytics = require("./analytics.js");
 
-const isBetween = (val, min, max) => {
-  return val >= min && val <= max;
-};
-
 const converters = {
-
   toBeaufortDisplay: (windSpeed) => {
-    let bft = "Unknown";
-    if (windSpeed == 1) {
-      bft = "0 bft";
-    } else if (isBetween(windSpeed, 1, 5)) {
-      bft = "1 bft";
-    } else if (isBetween(windSpeed, 6, 11)) {
-      bft = "2 bft";
-    } else if (isBetween(windSpeed, 12, 19)) {
-      bft = "3 bft";
-    } else if (isBetween(windSpeed, 20, 28)) {
-      bft = "4 bft";
-    } else if (isBetween(windSpeed, 29, 38)) {
-      bft = "5 bft";
-    } else if (isBetween(windSpeed, 39, 49)) {
-      bft = "6 bft";
-    } else if (isBetween(windSpeed, 50, 61)) {
-      bft = "7 bft";
-    } else if (isBetween(windSpeed, 62, 74)) {
-      bft = "8 bft";
-    } else if (isBetween(windSpeed, 75, 88)) {
-      bft = "9 bft";
-    } else if (isBetween(windSpeed, 89, 102)) {
-      bft = "10 bft";
-    } else if (isBetween(windSpeed, 103, 117)) {
-      bft = "11 bft";
-    }
-
+    const bft = analytics.calculateBeaufort(windSpeed);
     const labelMap = {
       "0 bft": "Calm",
       "1 bft": "Light Air",
@@ -61,42 +31,9 @@ const converters = {
   },
 
   toWindCompass: (windDirection) => {
-    let compass = "Unknown";
+    const compass = analytics.getWindCompass(windDirection);
     let label = "Unknown";
 
-    if (360 - windDirection <= 11.25) {
-      compass = "N";
-    } else if (isBetween(windDirection, 11.25, 33.75)) {
-      compass = "NNE";
-    } else if (isBetween(windDirection, 33.75, 56.25)) {
-      compass = "NE";
-    } else if (isBetween(windDirection, 56.25, 78.75)) {
-      compass = "ENE";
-    } else if (isBetween(windDirection, 78.75, 101.25)) {
-      compass = "E";
-    } else if (isBetween(windDirection, 101.25, 123.75)) {
-      compass = "ESE";
-    } else if (isBetween(windDirection, 123.75, 146.25)) {
-      compass = "SE";
-    } else if (isBetween(windDirection, 146.25, 168.75)) {
-      compass = "SSE";
-    } else if (isBetween(windDirection, 168.75, 191.25)) {
-      compass = "S";
-    } else if (isBetween(windDirection, 191.25, 213.75)) {
-      compass = "SSW";
-    } else if (isBetween(windDirection, 213.75, 236.25)) {
-      compass = "SW";
-    } else if (isBetween(windDirection, 236.25, 258.75)) {
-      compass = "WSW";
-    } else if (isBetween(windDirection, 258.75, 281.25)) {
-      compass = "W";
-    } else if (isBetween(windDirection, 281.25, 303.75)) {
-      compass = "WNW";
-    } else if (isBetween(windDirection, 303.75, 326.25)) {
-      compass = "NW";
-    } else if (isBetween(windDirection, 326.25, 348.75)) {
-      compass = "NNW";
-    }
     const compassMap = {
       N: "North",
       S: "South",
@@ -164,7 +101,7 @@ const converters = {
     }
   },
   toWindIcon: (windSpeed) => {
-    if (isBetween(windSpeed, 50, 88)) {
+    if (windSpeed >= 50 && windSpeed <= 88) {
       return "yellow wind";
     } else if (windSpeed > 88) {
       return "red wind";
@@ -174,17 +111,23 @@ const converters = {
   },
   toTrendIcon: (trend) => {
     switch (trend) {
-      case "RISING":
+      case constants.RISING:
         return "angle double up red";
-      case "FALLING":
+      case constants.FALLING:
         return "angle double up red";
-      case "STEADY":
+      case constants.STEADY:
         return "arrows alternate horizontal green";
     }
   },
 
   toReadingDisplayData(reading) {
-    reading.timestamp = new Date(reading.timestamp);
+    const date = new Date(reading.timestamp);
+    const displayDate = date.toISOString().split("T")[0];
+    const displayTime = date.toLocaleTimeString([], { hour12: false });
+    reading.displayTimestamp = {
+    dateTime: displayDate + " " + displayTime,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    };
     reading.weather = this.toWeatherDisplay(reading.code);
     reading.tempFahrenheit = this.toFahrenheit(reading.temperature);
     reading.tempIcon = this.toTempIcon(reading.temperature);
