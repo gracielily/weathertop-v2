@@ -30,7 +30,7 @@ const station = {
     const reading = {
       id: uuid.v4(),
       timestamp: new Date().toJSON(),
-      code: request.body.code,
+      code: Number(request.body.code),
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
       windDirection: Number(request.body.windDirection),
@@ -66,10 +66,11 @@ const station = {
       })
       .then((res) => {
         const currentWeather = res.data.current;
+        const code = converters.toWeatherTopCode(currentWeather.weather[0].id);
         const reading = {
           id: uuid.v4(),
           timestamp: new Date().toJSON(),
-          code: currentWeather.weather[0].id,
+          code: code,
           temperature: currentWeather.temp,
           windSpeed: currentWeather.wind_speed,
           windDirection: currentWeather.wind_deg,
