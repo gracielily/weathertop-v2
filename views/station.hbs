@@ -9,17 +9,20 @@
     {{capitilize station.name}} Station Overview
   </h2>
 </section>
-<!-- Station Map -->
-<section class="ui segment">
-  <div id="map"></div>
-</section>
+{{#if error}}
+  {{> displayerror error=error }}
+{{/if}}
 <!-- Reading Nav Link -->
 <section class="ui segment">
-  <a href="#createStationForm">
+  <a href="#createReadingForm">
     <button class="ui primary button">
       <i class="plus icon"></i>Add New Reading
     </button>
   </a>
+</section>
+<!-- Station Map -->
+<section class="ui segment">
+  <div id="map"></div>
 </section>
 {{#if station.readings}}
   <!-- Readings List -->
@@ -49,7 +52,7 @@
   </section>
 {{/if}}
 <!-- Create New Reading Form -->
-{{> createreading station=station error=error}}
+{{> createreading station=station}}
 
 <script>
   const station = {{{toJson station}}}
@@ -128,6 +131,5 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap'
 }).addTo(map);
 
-let marker = L.marker([station.latitude, station.longitude]).addTo(map);
-marker.bindPopup("<b>"+ station.name +"</b><br/><a href='" + markerUrl + "'>View Details</a>");
+const marker = L.marker([station.latitude, station.longitude]).addTo(map);
 </script>

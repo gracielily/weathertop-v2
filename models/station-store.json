@@ -685,7 +685,40 @@
       "name": "Limerick",
       "latitude": 52.6525618328483,
       "longitude": -8.597351107746364,
-      "readings": []
+      "readings": [
+        {
+          "id": "4206edcc-2184-44d3-925f-044d4414ecfc",
+          "timestamp": "2022-08-07T19:29:17.516Z",
+          "code": "200",
+          "temperature": 18.94,
+          "windSpeed": 2.86,
+          "windDirection": 315,
+          "pressure": 1027,
+          "displayTimestamp": {
+            "dateTime": "2022-08-07 19:29:17",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Partial Clouds",
+            "icon": "cloud sun"
+          },
+          "tempFahrenheit": 66.092,
+          "tempIcon": "temperature red high",
+          "beaufort": {
+            "bft": "1 bft",
+            "label": "Light Air"
+          },
+          "windChill": 20.4,
+          "windCompass": "UnknownNorth West",
+          "windIcon": "wind"
+        }
+      ],
+      "maxTemp": 18.94,
+      "minTemp": 2,
+      "maxWindSpeed": 2.86,
+      "minWindSpeed": 2,
+      "maxPressure": 1027,
+      "minPressure": 2
     }
   ]
 }

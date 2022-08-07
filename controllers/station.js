@@ -6,7 +6,7 @@ const axios = require("axios");
 const converters = require("../utils/converters.js");
 
 let contextData = {
-  pageTitle: "Station Details",
+  pageTitle: "Station Overview",
   navBreadcrumbs: [
     { title: "Dashboard", link: "/dashboard" },
     { title: "Station Details" },

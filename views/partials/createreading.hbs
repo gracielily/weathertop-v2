@@ -1,7 +1,4 @@
-{{#if error}}
-  {{> displayerror error=error}}
-{{/if}}
-<form action="/stations/{{station.id}}/addreading" class="ui raised segment form" method="POST">
+<form action="/stations/{{station.id}}/addreading" id="createReadingForm" class="ui raised segment form" method="POST">
   <h3 class="ui left aligned header">Add New Reading</h3>
   <div class="three fields">
     <div class="field">
