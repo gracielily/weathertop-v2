@@ -23,5 +23,7 @@
 
 <script>
     // set the active class on the menu
-    $("#${_id}").addClass("active item");
+    if("{{id}}"){
+      $("#{{id}}").addClass("active item");
+    }
 </script>
