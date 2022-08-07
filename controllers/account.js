@@ -69,7 +69,7 @@ const account = {
   edit(request, response) {
     const user = userstore.getByEmail(request.cookies.user);
     if (user.id !== request.params.id) {
-      response.render("404");
+      return response.render("404");
     } else {
       response.render("editdetails", {
         pageTitle: "Edit User Details",
