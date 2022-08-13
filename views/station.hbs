@@ -19,6 +19,11 @@
       <i class="plus icon"></i>Add New Reading
     </button>
   </a>
+  {{#if station.readings}}
+    <button onclick="deleteAllReadings()" class="right floated ui red button">
+      <i class="fire icon"></i>Delete All Readings
+    </button>
+  {{/if}}
 </section>
 <!-- Station Map -->
 <section class="ui segment">
@@ -58,6 +63,13 @@
 <script>
   const station = {{{toJson station}}}
   const readings = station.readings;
+  
+  function deleteAllReadings() {
+  const proceed = confirm("This will delete ALL Readings for " + station.name + " Station. Are you sure you wish to proceed?");
+    if(proceed){
+      location.href = location.href += "/delete-all-readings"
+    };
+  }
   
     // set up the station map
   const map = L.map('map', {dragging: false, doubleClickZoom: false, zoomControl: false, scrollWheelZoom: false}).setView([station.latitude, station.longitude], 13)
