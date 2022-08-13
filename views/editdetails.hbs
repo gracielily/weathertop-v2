@@ -10,5 +10,8 @@
     Account Details for {{capitilize user.firstName}}
   </h2>
 </section>
+{{#if error}}
+  {{> displayerror error=error }}
+{{/if}}
 <!-- Edit Details Form -->
 {{> accountdetailsform postUrl=postUrl user=user }}

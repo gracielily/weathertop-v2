@@ -24,6 +24,7 @@ const station = {
     contextData.station = converters.toStationDisplayData(station);
     response.render("station", contextData);
   },
+
   addReading(request, response) {
     const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
@@ -45,6 +46,7 @@ const station = {
       response.render("station", errorContextData);
     }
   },
+
   deleteReading(request, response) {
     const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
@@ -58,6 +60,7 @@ const station = {
       response.render("station", errorContextData);
     }
   },
+
   deleteAllReadings(request, response) {
     const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
@@ -70,10 +73,12 @@ const station = {
       response.render("station", errorContextData);
     }
   },
+
   generateLatestWeather(request, response) {
     const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
     const station = stationStore.getStationForUser(stationId, user.id);
+    // make call to open weather api to retrieve weaher details
     axios
       .get("https://api.openweathermap.org/data/2.5/onecall", {
         params: {
@@ -85,6 +90,7 @@ const station = {
       })
       .then((res) => {
         const currentWeather = res.data.current;
+        // map the open weather code to a weathertop code
         const code = converters.toWeatherTopCode(currentWeather.weather[0].id);
         const reading = {
           id: uuid.v4(),
