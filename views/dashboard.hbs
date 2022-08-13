@@ -30,6 +30,11 @@
       <i class="plus icon"></i>Add New Station
     </button>
   </a>
+    {{#if stations}}
+    <button onclick="deleteAllStations()" class="right floated ui red button">
+      <i class="fire icon"></i>Delete All Stations
+    </button>
+  {{/if}}
 </section>
 <!-- Stations List -->
 {{#if stations}}
@@ -83,6 +88,14 @@
 
 <script>
 const stations = {{{toJson stations}}}
+      
+function deleteAllStations() {
+  const proceed = confirm("This will delete ALL of your Stations and their Readings. Are you sure you wish to proceed?");
+  if(proceed){
+    location.href = location.href += "/delete-all-stations"
+  };
+};
+
 // populate the create station form with the co-ordinates
 function onMapClick(e) {
   const createStationForm = document.getElementById("createStationForm")

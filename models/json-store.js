@@ -22,10 +22,6 @@ class JsonStore {
     this.db.get(collection).remove(obj).value();
   }
 
-  removeAll(collection) {
-    this.db.get(collection).remove().value();
-  }
-
   findAll(collection) {
     return this.db.get(collection).value();
   }

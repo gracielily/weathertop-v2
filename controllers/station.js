@@ -25,7 +25,7 @@ const station = {
     response.render("station", contextData);
   },
   addReading(request, response) {
-    account.getLoggedInUserOrRedirect(request, response);
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
     const reading = {
       id: uuid.v4(),
@@ -37,7 +37,7 @@ const station = {
       pressure: Number(request.body.pressure),
     };
     try {
-      stationStore.addReading(stationId, reading);
+      stationStore.addReading(stationId, user.id, reading);
       response.redirect("/stations/" + stationId);
     } catch (e) {
       const errorContextData = { ...contextData };
@@ -46,22 +46,41 @@ const station = {
     }
   },
   deleteReading(request, response) {
-    account.getLoggedInUserOrRedirect(request, response);
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
     const readingId = request.params.readingId;
-    stationStore.deleteReading(stationId, readingId);
-    response.redirect("/stations/" + stationId);
+    try {
+      stationStore.deleteReading(stationId, user.id, readingId);
+      response.redirect("/stations/" + stationId);
+    } catch (e) {
+      const errorContextData = { ...contextData };
+      errorContextData.error = e;
+      response.render("station", errorContextData);
+    }
+  },
+  deleteAllReadings(request, response) {
+    const user = account.getLoggedInUserOrRedirect(request, response);
+    const stationId = request.params.id;
+    try {
+      stationStore.deleteAllReadings(stationId, user.id);
+      response.redirect("/stations/" + stationId);
+    } catch (e) {
+      const errorContextData = { ...contextData };
+      errorContextData.error = e;
+      response.render("station", errorContextData);
+    }
   },
   generateLatestWeather(request, response) {
+    const user = account.getLoggedInUserOrRedirect(request, response);
     const stationId = request.params.id;
-    const station = stationStore.getStation(stationId);
+    const station = stationStore.getStationForUser(stationId, user.id);
     axios
       .get("https://api.openweathermap.org/data/2.5/onecall", {
         params: {
           lat: station.latitude,
           lon: station.longitude,
           units: "metric",
-          appid: process.env.OPEN_MAP_API_KEY
+          appid: process.env.OPEN_MAP_API_KEY,
         },
       })
       .then((res) => {
@@ -77,7 +96,7 @@ const station = {
           pressure: currentWeather.pressure,
         };
         try {
-          stationStore.addReading(stationId, reading);
+          stationStore.addReading(stationId, user.id, reading);
           response.redirect("/stations/" + stationId);
         } catch (e) {
           const errorContextData = { ...contextData };
@@ -87,8 +106,9 @@ const station = {
       })
       .catch((error) => {
         const errorContextData = { ...contextData };
-          errorContextData.error = error;
-          response.render("station", errorContextData);
+        errorContextData.error =
+          "The Reading could not be generated: " + error.response.data.message;
+        response.render("station", errorContextData);
       });
   },
 };

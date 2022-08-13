@@ -16,8 +16,8 @@ const dashboard = {
       x.name.toLowerCase().localeCompare(y.name.toLowerCase())
     );
     stations.map((station) => converters.toStationDisplayData(station));
-    contextData.stations = stations
-    contextData.user = user
+    contextData.stations = stations;
+    contextData.user = user;
     const displayWelcomeMsg = request.cookies["display_welcome_message"];
     if (displayWelcomeMsg) {
       contextData.displayWelcomeMsg = displayWelcomeMsg;
@@ -46,9 +46,27 @@ const dashboard = {
   },
 
   deleteStation(request, response) {
-    account.getLoggedInUserOrRedirect(request, response);
-    stationStore.deleteStation(request.params.id);
-    response.redirect("/dashboard");
+    const user = account.getLoggedInUserOrRedirect(request, response);
+    try {
+      stationStore.deleteStation(request.params.id, user.id);
+      response.redirect("/dashboard");
+    } catch (e) {
+      const errorContextData = { ...contextData };
+      errorContextData.error = e;
+      response.render("dashboard", errorContextData);
+    }
+  },
+
+  deleteAllStations(request, response) {
+    const user = account.getLoggedInUserOrRedirect(request, response);
+    try {
+      stationStore.deleteAllStations(user.id);
+      response.redirect("/dashboard");
+    } catch (e) {
+      const errorContextData = { ...contextData };
+      errorContextData.error = e;
+      response.render("dashboard", errorContextData);
+    }
   },
 
   dismissWelcomeMessage(request, response) {

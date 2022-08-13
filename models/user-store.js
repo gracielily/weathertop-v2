@@ -1,19 +1,18 @@
-'use strict';
+"use strict";
 
-const _ = require('lodash');
-const JsonStore = require('./json-store');
+const _ = require("lodash");
+const JsonStore = require("./json-store");
 
 const userStore = {
-
-  store: new JsonStore('./models/user-store.json', { users: [] }),
-  collection: 'users',
+  store: new JsonStore("./models/user-store.json", { users: [] }),
+  collection: "users",
 
   getAllUsers() {
     return this.store.findAll(this.collection);
   },
 
   addUser(user) {
-    if(this.getByEmail(user.email)){
+    if (this.getByEmail(user.email)) {
       throw "User already exists";
     }
     this.store.add(this.collection, user);
@@ -27,14 +26,14 @@ const userStore = {
   getByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
-  
-  updateUser(user, updatedUser){
+
+  updateUser(user, updatedUser) {
     user.firstName = updatedUser.firstName;
     user.lastName = updatedUser.lastName;
     user.email = updatedUser.email;
-    user.password = updatedUser.password
-    this.store.save(); 
-  }
+    user.password = updatedUser.password;
+    this.store.save();
+  },
 };
 
 module.exports = userStore;
