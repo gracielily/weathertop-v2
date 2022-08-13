@@ -10,10 +10,6 @@ const app = express();
 app.use(cookieParser());
 const exphbs = require("express-handlebars");
 
-const isBetween = (val, min, max) => {
-  return val >= min && val <= max;
-};
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use(fileUpload());
