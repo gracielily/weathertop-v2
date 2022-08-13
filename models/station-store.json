@@ -621,6 +621,30 @@
       "minWindSpeed": null,
       "maxPressure": null,
       "minPressure": null
+    },
+    {
+      "id": "ff00e2f2-448c-4b73-ba59-70d13ab5649d",
+      "userId": "e8c85b47-fcbc-4dae-9420-8e3f0b235e5d",
+      "name": "A",
+      "latitude": 53.341294199500794,
+      "longitude": -7.964172419160606,
+      "readings": [
+        {
+          "id": "417a5531-dd49-4915-9655-56a64febeed1",
+          "timestamp": "2022-08-13T11:35:02.823Z",
+          "code": "100",
+          "temperature": 25.79,
+          "windSpeed": 3.16,
+          "windDirection": 51,
+          "pressure": 1015
+        }
+      ],
+      "maxTemp": null,
+      "minTemp": null,
+      "maxWindSpeed": null,
+      "minWindSpeed": null,
+      "maxPressure": null,
+      "minPressure": null
     }
   ]
 }

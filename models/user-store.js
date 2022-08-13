@@ -7,10 +7,6 @@ const userStore = {
   store: new JsonStore("./models/user-store.json", { users: [] }),
   collection: "users",
 
-  getAllUsers() {
-    return this.store.findAll(this.collection);
-  },
-
   addUser(user) {
     if (this.getByEmail(user.email)) {
       throw "User already exists";
