@@ -67,7 +67,7 @@ const account = {
 
   edit(request, response) {
     const user = userstore.getByEmail(request.cookies.user);
-    if (user.id !== request.params.id) {
+    if (!user || user.id !== request.params.id) {
       return response.render("404");
     } else {
       response.render("editdetails", {
@@ -84,7 +84,7 @@ const account = {
   
   saveDetails(request, response){
     const user = userstore.getByEmail(request.cookies.user);
-    if (user.id !== request.params.id) {
+    if (!user || user.id !== request.params.id) {
       response.render("404");
     } else {
       const updatedUser = {
@@ -94,6 +94,7 @@ const account = {
       password: request.body.password,
     };
       userstore.updateUser(user, updatedUser);
+      response.cookie("user", user.email);
       response.redirect('/users/' + user.id);
     }
   }

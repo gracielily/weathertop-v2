@@ -26,7 +26,7 @@
             "label": "Moderate Breeze"
           },
           "windChill": -4,
-          "windCompass": "UnknownSouth South West",
+          "windCompass": "South South West",
           "windIcon": "wind",
           "displayTimestamp": {
             "dateTime": "2022-08-05 11:55:02",
@@ -78,7 +78,7 @@
             "label": "Strong Storm"
           },
           "windChill": 18.4,
-          "windCompass": "UnknownEast",
+          "windCompass": "East",
           "windIcon": "red wind",
           "displayTimestamp": {
             "dateTime": "2022-08-06 08:03:04",
@@ -104,7 +104,7 @@
             "label": "Light Air"
           },
           "windChill": 32.5,
-          "windCompass": "UnknownEast",
+          "windCompass": "East",
           "windIcon": "wind",
           "displayTimestamp": {
             "dateTime": "2022-08-06 08:45:24",
@@ -130,7 +130,7 @@
             "label": "Moderate Breeze"
           },
           "windChill": 45.3,
-          "windCompass": "UnknownEast",
+          "windCompass": "East",
           "windIcon": "wind",
           "displayTimestamp": {
             "dateTime": "2022-08-06 08:45:58",
@@ -182,7 +182,7 @@
             "label": "Near Gale"
           },
           "windChill": -5.4,
-          "windCompass": "UnknownSouth South West",
+          "windCompass": "South South West",
           "windIcon": "yellow wind",
           "displayTimestamp": {
             "dateTime": "2022-08-06 12:42:10",
@@ -208,7 +208,7 @@
             "label": "Fresh Breeze"
           },
           "windChill": 13.1,
-          "windCompass": "UnknownSouth South West",
+          "windCompass": "South South West",
           "windIcon": "wind",
           "displayTimestamp": {
             "dateTime": "2022-08-06 17:36:07",
@@ -234,7 +234,7 @@
             "label": "Near Gale"
           },
           "windChill": 32.8,
-          "windCompass": "UnknownEast",
+          "windCompass": "East",
           "windIcon": "yellow wind",
           "displayTimestamp": {
             "dateTime": "2022-08-07 07:08:14",
@@ -264,7 +264,7 @@
             "label": "Light Air"
           },
           "windChill": 15.3,
-          "windCompass": "UnknownNorth West",
+          "windCompass": "North West",
           "windIcon": "wind"
         },
         {
@@ -290,7 +290,7 @@
             "label": "Light Air"
           },
           "windChill": 16.8,
-          "windCompass": "UnknownNorth North West",
+          "windCompass": "North North West",
           "windIcon": "wind"
         },
         {
@@ -316,7 +316,7 @@
             "label": "Moderate Breeze"
           },
           "windChill": 20,
-          "windCompass": "UnknownNorth North East",
+          "windCompass": "North North East",
           "windIcon": "wind"
         },
         {
@@ -342,7 +342,7 @@
             "label": "Unknown"
           },
           "windChill": 20.4,
-          "windCompass": "UnknownSouth West",
+          "windCompass": "South West",
           "windIcon": "wind"
         },
         {
@@ -368,7 +368,7 @@
             "label": "Light Air"
           },
           "windChill": 23.9,
-          "windCompass": "UnknownSouth",
+          "windCompass": "South",
           "windIcon": "wind"
         },
         {
@@ -394,19 +394,45 @@
             "label": "Unknown"
           },
           "windChill": 24.4,
-          "windCompass": "UnknownEast North East",
+          "windCompass": "East North East",
+          "windIcon": "wind"
+        },
+        {
+          "id": "241cb6f3-52c9-4e6f-82db-804cc416dbb9",
+          "timestamp": "2022-08-14T10:14:39.975Z",
+          "code": "600",
+          "temperature": 21.18,
+          "windSpeed": 1.34,
+          "windDirection": 109,
+          "pressure": 1007,
+          "displayTimestamp": {
+            "dateTime": "2022-08-14 10:14:39",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Rain",
+            "icon": "cloud rain"
+          },
+          "tempFahrenheit": 70.124,
+          "tempIcon": "temperature red high",
+          "beaufort": {
+            "bft": "1 bft",
+            "label": "Light Air"
+          },
+          "windChill": 23.2,
+          "windCompass": "East South East",
           "windIcon": "wind"
         }
       ],
       "maxTemp": 40,
       "minTemp": 1,
-      "trendTempIcon": "angle double up red",
+      "trendTempIcon": "arrows alternate horizontal green",
       "maxWindSpeed": 100,
       "minWindSpeed": 1.34,
       "trendWindSpeedIcon": "arrows alternate horizontal green",
       "maxPressure": 1028,
       "minPressure": 5,
-      "trendPressureIcon": "arrows alternate horizontal green"
+      "trendPressureIcon": "angle double down teal"
     },
     {
       "id": "17f84cb6-850b-4a87-8e6d-1787c0cd1806",
@@ -438,7 +464,7 @@
             "label": "Light Air"
           },
           "windChill": 21.9,
-          "windCompass": "UnknownSouth West",
+          "windCompass": "South West",
           "windIcon": "wind"
         },
         {
@@ -464,7 +490,7 @@
             "label": "Light Air"
           },
           "windChill": 22,
-          "windCompass": "UnknownSouth West",
+          "windCompass": "South West",
           "windIcon": "wind"
         },
         {
@@ -490,7 +516,7 @@
             "label": "Light Air"
           },
           "windChill": 21.9,
-          "windCompass": "UnknownSouth West",
+          "windCompass": "South West",
           "windIcon": "wind"
         },
         {
@@ -542,7 +568,7 @@
             "label": "Unknown"
           },
           "windChill": -5.7,
-          "windCompass": "UnknownEast",
+          "windCompass": "East",
           "windIcon": "red wind"
         },
         {
@@ -568,7 +594,7 @@
             "label": "Unknown"
           },
           "windChill": -12,
-          "windCompass": "UnknownEast",
+          "windCompass": "East",
           "windIcon": "red wind"
         },
         {
@@ -594,18 +620,44 @@
             "label": "Light Air"
           },
           "windChill": 23.3,
-          "windCompass": "UnknownSouth West",
+          "windCompass": "South West",
+          "windIcon": "wind"
+        },
+        {
+          "id": "90dd0e87-cb7b-4326-b7cf-b08fe8241e3e",
+          "timestamp": "2022-08-14T10:03:26.917Z",
+          "code": "100",
+          "temperature": 23.77,
+          "windSpeed": 3.6,
+          "windDirection": 350,
+          "pressure": 1007,
+          "displayTimestamp": {
+            "dateTime": "2022-08-14 10:03:26",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Clear",
+            "icon": "sun"
+          },
+          "tempFahrenheit": 74.786,
+          "tempIcon": "temperature red high",
+          "beaufort": {
+            "bft": "1 bft",
+            "label": "Light Air"
+          },
+          "windChill": 25.5,
+          "windCompass": "North",
           "windIcon": "wind"
         }
       ],
-      "maxTemp": 21.83,
+      "maxTemp": 23.77,
       "minTemp": 2,
       "maxWindSpeed": 300,
       "minWindSpeed": 3.6,
       "maxPressure": 1028,
       "minPressure": 5,
-      "trendTempIcon": "arrows alternate horizontal green",
-      "trendWindSpeedIcon": "arrows alternate horizontal green",
+      "trendTempIcon": "angle double up red",
+      "trendWindSpeedIcon": "angle double down teal",
       "trendPressureIcon": "arrows alternate horizontal green"
     },
     {
@@ -614,7 +666,17 @@
       "name": "Limerick",
       "latitude": 52.6525618328483,
       "longitude": -8.597351107746364,
-      "readings": [],
+      "readings": [
+        {
+          "id": "536137fe-cf00-4db5-8042-e758db046ae5",
+          "timestamp": "2022-08-14T13:04:08.257Z",
+          "code": "300",
+          "temperature": 22.94,
+          "windSpeed": 0.88,
+          "windDirection": 346,
+          "pressure": 1007
+        }
+      ],
       "maxTemp": null,
       "minTemp": null,
       "maxWindSpeed": null,
@@ -623,22 +685,12 @@
       "minPressure": null
     },
     {
-      "id": "ff00e2f2-448c-4b73-ba59-70d13ab5649d",
-      "userId": "e8c85b47-fcbc-4dae-9420-8e3f0b235e5d",
-      "name": "A",
-      "latitude": 53.341294199500794,
-      "longitude": -7.964172419160606,
-      "readings": [
-        {
-          "id": "417a5531-dd49-4915-9655-56a64febeed1",
-          "timestamp": "2022-08-13T11:35:02.823Z",
-          "code": "100",
-          "temperature": 25.79,
-          "windSpeed": 3.16,
-          "windDirection": 51,
-          "pressure": 1015
-        }
-      ],
+      "id": "19d9e1e8-69e8-4d09-ac1b-a7e06e8e4ded",
+      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
+      "name": "Tipperary",
+      "latitude": 52.481256898959984,
+      "longitude": -8.15872196573764,
+      "readings": [],
       "maxTemp": null,
       "minTemp": null,
       "maxWindSpeed": null,

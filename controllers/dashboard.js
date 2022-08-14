@@ -18,10 +18,7 @@ const dashboard = {
     stations.map((station) => converters.toStationDisplayData(station));
     contextData.stations = stations;
     contextData.user = user;
-    const displayWelcomeMsg = request.cookies["display_welcome_message"];
-    if (displayWelcomeMsg) {
-      contextData.displayWelcomeMsg = displayWelcomeMsg;
-    }
+    contextData.displayWelcomeMsg = request.cookies["display_welcome_message"];
     response.render("dashboard", contextData);
   },
 

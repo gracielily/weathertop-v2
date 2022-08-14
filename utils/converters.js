@@ -19,14 +19,14 @@ const converters = {
 
   toWindCompass: (windDirection) => {
     const compass = analytics.getWindCompass(windDirection);
-    let label = "Unknown";
-
-    if (compass !== "Unknown") {
-      const windCompassLetters = compass.split("");
-      windCompassLetters.map((letter) => {
-        label += constants.COMPASS_MAP[letter] + " ";
-      });
+    if (compass === "Unknown") {
+      return "Unknown";
     }
+    const windCompassLetters = compass.split("");
+    let label = "";
+    windCompassLetters.map((letter) => {
+      label += constants.COMPASS_MAP[letter] + " ";
+    });
     return label.trim();
   },
 
