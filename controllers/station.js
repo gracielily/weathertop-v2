@@ -9,8 +9,8 @@ let contextData = {
   pageTitle: "Station Overview",
   navBreadcrumbs: [
     { title: "Dashboard", link: "/dashboard" },
-    { title: "Station Details" },
-  ],
+    { title: "Station Details" }
+  ]
 };
 
 const station = {
@@ -35,7 +35,7 @@ const station = {
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
       windDirection: Number(request.body.windDirection),
-      pressure: Number(request.body.pressure),
+      pressure: Number(request.body.pressure)
     };
     try {
       stationStore.addReading(stationId, user.id, reading);
@@ -85,8 +85,8 @@ const station = {
           lat: station.latitude,
           lon: station.longitude,
           units: "metric",
-          appid: process.env.OPEN_MAP_API_KEY,
-        },
+          appid: process.env.OPEN_MAP_API_KEY
+        }
       })
       .then((res) => {
         const currentWeather = res.data.current;
@@ -99,7 +99,7 @@ const station = {
           temperature: currentWeather.temp,
           windSpeed: currentWeather.wind_speed,
           windDirection: currentWeather.wind_deg,
-          pressure: currentWeather.pressure,
+          pressure: currentWeather.pressure
         };
         try {
           stationStore.addReading(stationId, user.id, reading);
@@ -116,7 +116,7 @@ const station = {
           "The Reading could not be generated: " + error.response.data.message;
         response.render("station", errorContextData);
       });
-  },
+  }
 };
 
 module.exports = station;

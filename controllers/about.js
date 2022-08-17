@@ -6,10 +6,10 @@ const about = {
     const user = account.getLoggedInUserOrRedirect(request, response);
     const viewData = {
       pageTitle: "About",
-      user: user,
+      user: user
     };
     response.render("about", viewData);
-  },
+  }
 };
 
 module.exports = about;

@@ -21,7 +21,7 @@
     <label for="email">Email</label>
     <div class="ui left icon input">
       <i class="envelope icon"></i>
-      <input id="email" name="email" placeholder="Email" required type="text" value="{{user.email}}">
+      <input id="email" name="email" placeholder="Email" required type="email" value="{{user.email}}">
     </div>
   </div>
   <div class="field">
@@ -32,8 +32,8 @@
     </div>
   </div>
   {{#if createUser}}
-  <button class="ui fluid large blue submit button">Register</button>
+    <button class="ui fluid large blue submit button">Register</button>
   {{else}}
-  <button class="ui blue submit button"><i class="pencil icon"></i>Update Details</button>
+    <button class="ui blue submit button"><i class="pencil icon"></i>Update Details</button>
   {{/if}}
 </form>

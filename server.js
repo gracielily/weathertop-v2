@@ -18,7 +18,7 @@ app.engine(
   exphbs({
     extname: ".hbs",
     defaultLayout: "main",
-    helpers: require("./utils/helpers.js").helpers,
+    helpers: require("./utils/helpers.js").helpers
   })
 );
 app.set("view engine", ".hbs");
@@ -30,6 +30,6 @@ app.all("*", (req, res) => {
   res.status(404).render("404");
 });
 
-const listener = app.listen(process.env.PORT || 4000, function () {
+const listener = app.listen(process.env.PORT || 4000, function() {
   logger.info(`weathertop-v2 started on port ${listener.address().port}`);
 });

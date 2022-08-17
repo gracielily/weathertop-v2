@@ -9,7 +9,7 @@
 </section>
 <!-- Login Form -->
 {{#if error}}
-{{> displayerror error=error }}
+  {{> displayerror error=error }}
 {{/if}}
 <section class="ui left aligned grid">
   <div class="column">
@@ -20,7 +20,7 @@
           <label for="email">E-mail</label>
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input id="email" name="email" placeholder="johnsmith@example.com" required type="text">
+            <input id="email" name="email" placeholder="johnsmith@example.com" required type="email">
           </div>
         </div>
         <div class="field">

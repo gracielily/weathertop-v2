@@ -1,6 +1,6 @@
 const converters = require("./converters.js");
 
-const register = function (Handlebars) {
+const register = function(Handlebars) {
   const helpers = {
     last: (arr) => {
       return arr[arr.length - 1];
@@ -15,7 +15,7 @@ const register = function (Handlebars) {
     },
     toJson: (obj) => {
       return JSON.stringify(obj);
-    },
+    }
   };
 
   if (Handlebars && typeof Handlebars.registerHelper === "function") {

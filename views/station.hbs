@@ -32,19 +32,19 @@
 {{#if station.readings}}
   <!-- Readings List -->
   <section class="ui raised segment">
-     {{> latestreading station=station}}
-     {{> listreadings station=station}}
+    {{> latestreading station=station}}
+    {{> listreadings station=station}}
   </section>
-<!-- Readings Graph -->
-<section class="ui raised segment">
-  <h2>
-    Weather Trends
-  </h2>
-  <p>
-    Below is a graph representing the historical weather trends for this station.
-  </p>
-<canvas id="trendsGraph" height="120"></canvas>
-</section>
+  <!-- Readings Graph -->
+  <section class="ui raised segment">
+    <h2>
+      Weather Trends
+    </h2>
+    <p>
+      Below is a graph representing the historical weather trends for this station.
+    </p>
+    <canvas id="trendsGraph" height="120"></canvas>
+  </section>
 {{else}}
   <!-- No Readings Message -->
   <section class="ui icon blue message">
@@ -53,7 +53,7 @@
       <div class="header">
         No Weather Readings for {{capitilize station.name}} Station
       </div>
-      <p>You can create a Reading by filling out the form below.</p>
+      <p>You can create a Reading by filling out the form below or by clicking the Auto Generate Reading button.</p>
     </div>
   </section>
 {{/if}}
@@ -63,92 +63,97 @@
 <script>
   const station = {{{toJson station}}}
   const readings = station.readings;
-  
+
   function deleteAllReadings() {
-  const proceed = confirm("This will delete ALL Readings for this Station. Are you sure you wish to proceed?");
-    if(proceed){
-      location.href = location.href += "/delete-all-readings"
-    };
+    const proceed = confirm(
+      "This will delete ALL Readings for this Station. Are you sure you wish to proceed?");
+    // if user clicks confirm direct to delete all readings endpoint
+    if (proceed) {
+      location.href = location.href += "/delete-all-readings";
+    }
   }
-  
-    // set up the station map
-  const map = L.map('map', {dragging: false, doubleClickZoom: false, zoomControl: false, scrollWheelZoom: false}).setView([station.latitude, station.longitude], 13)
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+
+  // set up the station map
+  const map = L.map("map", {
+    dragging: false,
+    doubleClickZoom: false,
+    zoomControl: false,
+    scrollWheelZoom: false
+  }).setView([station.latitude, station.longitude], 13);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: '© OpenStreetMap'
+    attribution: "© OpenStreetMap"
   }).addTo(map);
 
   const marker = L.marker([station.latitude, station.longitude]).addTo(map);
-  
+
   // set up the readings chart
-  if(readings.length) {
-    const ctx = document.getElementById('trendsGraph').getContext('2d');
+  if (readings.length) {
+    const ctx = document.getElementById("trendsGraph").getContext("2d");
 
     const options = {
-      type: 'line',
+      type: "line",
       data: {
         datasets: [
           {
-            label: 'Temperature',
+            label: "Temperature",
             data: readings.map((reading) => {
               return {
                 x: new Date(reading.displayTimestamp.dateTime),
                 y: reading.temperature
-              }
+              };
             }),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, .6)',
-            pointStyle: 'circle',
+            borderColor: "rgb(255, 99, 132)",
+            backgroundColor: "rgba(255, 99, 132, .6)",
+            pointStyle: "circle",
             pointRadius: 5,
             pointHoverRadius: 7
-        },
-        {
-          label: 'Wind',
-          data: readings.map((reading) => {
-            return {
-            x: new Date(reading.displayTimestamp.dateTime),
-            y: reading.windSpeed
-            }
-          }),
-          borderColor: 'rgb(54, 162, 235)',
-          backgroundColor: 'rgba(54, 162, 235, .6)',
-          pointStyle: 'circle',
-          pointRadius: 5,
-          pointHoverRadius: 7
-        },
-        {
-          label: 'Pressure',
-          data: readings.map((reading) => {
-            return {
-            x: new Date(reading.displayTimestamp.dateTime),
-            y: reading.pressure
-            }
-          }),
-          borderColor: 'rgb(153, 102, 255)',
-          backgroundColor: 'rgba(153, 102, 255, .6)',
-          pointStyle: 'circle',
-          pointRadius: 5,
-          pointHoverRadius: 7
-        }]
+          },
+          {
+            label: "Wind",
+            data: readings.map((reading) => {
+              return {
+                x: new Date(reading.displayTimestamp.dateTime),
+                y: reading.windSpeed
+              };
+            }),
+            borderColor: "rgb(54, 162, 235)",
+            backgroundColor: "rgba(54, 162, 235, .6)",
+            pointStyle: "circle",
+            pointRadius: 5,
+            pointHoverRadius: 7
+          },
+          {
+            label: "Pressure",
+            data: readings.map((reading) => {
+              return {
+                x: new Date(reading.displayTimestamp.dateTime),
+                y: reading.pressure
+              };
+            }),
+            borderColor: "rgb(153, 102, 255)",
+            backgroundColor: "rgba(153, 102, 255, .6)",
+            pointStyle: "circle",
+            pointRadius: 5,
+            pointHoverRadius: 7
+          }]
       },
       options: {
         scales: {
           x: {
-            type: 'timeseries',
+            type: "timeseries",
             time: {
-              unit: 'week'
+              unit: "week"
             },
-             ticks: {
+            ticks: {
               autoSkip: false,
-               source: 'data',
-            },
-          },
+              source: "data"
+            }
+          }
         }
       }
-    }
-  
+    };
     const trendGraph = new Chart(ctx, options);
-    
   }
 
 </script>

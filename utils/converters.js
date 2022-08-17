@@ -9,7 +9,7 @@ const converters = {
     const labelMap = constants.WIND_MAP;
     return {
       bft: bft,
-      label: labelMap[bft] ? labelMap[bft] : "Unknown",
+      label: labelMap[bft] ? labelMap[bft] : "Unknown"
     };
   },
 
@@ -87,7 +87,7 @@ const converters = {
     const displayTime = date.toLocaleTimeString([], { hour12: false });
     reading.displayTimestamp = {
       dateTime: displayDate + " " + displayTime,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     };
     reading.weather = this.toWeatherDisplay(reading.code);
     reading.tempFahrenheit = this.toFahrenheit(reading.temperature);
@@ -121,7 +121,7 @@ const converters = {
 
     station.readings.map((reading) => this.toReadingDisplayData(reading));
     return station;
-  },
+  }
 };
 
 module.exports = converters;

@@ -4,18 +4,18 @@ const userstore = require("../models/user-store");
 const uuid = require("uuid");
 
 const LoginContextData = {
-  pageTitle: "Login",
+  pageTitle: "Login"
 };
 const signupContextData = {
-  pageTitle: "Signup",
+  pageTitle: "Signup"
 };
 
 const editUserContextData = {
   pageTitle: "Edit User Details",
   navBreadcrumbs: [
     { title: "Dashboard", link: "/dashboard" },
-    { title: "Account Details" },
-  ],
+    { title: "Account Details" }
+  ]
 };
 
 const account = {
@@ -40,7 +40,7 @@ const account = {
       firstName: request.body.firstName,
       lastName: request.body.lastName,
       email: request.body.email,
-      password: request.body.password,
+      password: request.body.password
     };
     try {
       userstore.addUser(user);
@@ -95,7 +95,7 @@ const account = {
         firstName: request.body.firstName,
         lastName: request.body.lastName,
         email: request.body.email,
-        password: request.body.password,
+        password: request.body.password
       };
       try {
         userstore.updateUser(user, updatedUser);
@@ -107,7 +107,7 @@ const account = {
         response.render("editdetails", errorContextData);
       }
     }
-  },
+  }
 };
 
 module.exports = account;
