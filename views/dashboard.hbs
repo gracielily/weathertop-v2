@@ -20,10 +20,11 @@
     <span class="blue">Dashboard</span>
   </h2>
 </section>
-<!-- New Station Nav Link -->
+<!-- Error Message -->
 {{#if error}}
   {{> displayerror error=error }}
 {{/if}}
+<!-- Station Nav Links -->
 <section class="ui segment">
   <a href="#newStation">
     <button class="ui primary button">
@@ -90,7 +91,8 @@
 const stations = {{{toJson stations}}}
       
 function deleteAllStations() {
-  const proceed = confirm("This will delete ALL of your Stations and their Readings. Are you sure you wish to proceed?");
+  const proceed = confirm(
+    "This will delete ALL of your Stations and their Readings. Are you sure you wish to proceed?");
   if(proceed){
     location.href = location.href += "/delete-all-stations"
   };
@@ -104,7 +106,9 @@ function onMapClick(e) {
   let popup = L.popup();
   popup
   .setLatLng(e.latlng)
-  .setContent("<p>Populated form with the following:<br/> " + "<strong>Latitude:</strong> " + e.latlng.lat + "<br/><strong>Longitude:</strong> " + e.latlng.lng + "</p>")
+  .setContent("<p>Populated form with the following:<br/> " + 
+              "<strong>Latitude:</strong> " + e.latlng.lat + 
+              "<br/><strong>Longitude:</strong> " + e.latlng.lng + "</p>")
   .openOn(map);
 }
 
@@ -121,7 +125,8 @@ if(stations.length){
   latlngs.push(L.latLng(station.latitude, station.longitude))
   let marker = L.marker([station.latitude, station.longitude]).addTo(map);
   const markerUrl = '/stations/' + station.id;
-  marker.bindPopup("<b>"+ station.name +"</b><br/><a href='" + markerUrl + "'>View Details</a>");
+  marker.bindPopup(
+    "<b>"+ station.name + "</b><br/><a href='" + markerUrl + "'>View Details</a>");
   })
 } else {
   // set to the centre of Ireland

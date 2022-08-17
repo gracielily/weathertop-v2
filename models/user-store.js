@@ -23,11 +23,15 @@ const userStore = {
     return this.store.findOneBy(this.collection, { email: email });
   },
 
-  updateUser(user, updatedUser) {
-    user.firstName = updatedUser.firstName;
-    user.lastName = updatedUser.lastName;
-    user.email = updatedUser.email;
-    user.password = updatedUser.password;
+  updateUser(currentUser, updatedUser) {
+    const userWithEmail = this.getByEmail(updatedUser.email)
+    if(userWithEmail && userWithEmail.id !== currentUser.id){
+      throw "Email " + userWithEmail.email + " already in use";
+    }
+    currentUser.firstName = updatedUser.firstName;
+    currentUser.lastName = updatedUser.lastName;
+    currentUser.email = updatedUser.email;
+    currentUser.password = updatedUser.password;
     this.store.save();
   },
 };

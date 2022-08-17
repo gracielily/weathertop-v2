@@ -72,6 +72,7 @@ const analytics = {
     }
     return "Unknown";
   },
+
   calculateWindChill: (temperature, windSpeed) => {
     return (
       Math.floor(

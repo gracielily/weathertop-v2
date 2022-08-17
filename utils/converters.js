@@ -66,9 +66,11 @@ const converters = {
   },
 
   toWeatherTopCode(openMapWeatherCode) {
-    // attempt to map code to weathertop code to unify data
-    // some codes do not match weathertop codes so return the original
-    // if they do not match
+    /*
+    Attempt to map code to weathertop code to unify data
+    some codes do not match weathertop codes so return the original
+    if they do not match
+    */
     const map = constants.OPEN_MAP_WEATHERTOP_MAPPING;
     let code = openMapWeatherCode;
     for (var key in map) {

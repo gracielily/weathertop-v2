@@ -10,6 +10,14 @@ const signupContextData = {
   pageTitle: "Signup",
 };
 
+const editUserContextData = {
+  pageTitle: "Edit User Details",
+  navBreadcrumbs: [
+    { title: "Dashboard", link: "/dashboard" },
+    { title: "Account Details" },
+  ],
+};
+
 const account = {
   login(request, response) {
     response.render("login", LoginContextData);
@@ -67,37 +75,39 @@ const account = {
 
   edit(request, response) {
     const user = userstore.getByEmail(request.cookies.user);
+    // only allow user to edit their own details
     if (!user || user.id !== request.params.id) {
       return response.render("404");
     } else {
-      response.render("editdetails", {
-        pageTitle: "Edit User Details",
-        user: user,
-        navBreadcrumbs: [
-          { title: "Dashboard", link: "/dashboard" },
-          { title: "Account Details" },
-        ],
-        postUrl: '/users/' + user.id + '/save-details'
-      });
+      editUserContextData.user = user;
+      editUserContextData.postUrl = "/users/" + user.id + "/save-details";
+      response.render("editdetails", editUserContextData);
     }
   },
-  
-  saveDetails(request, response){
+
+  saveDetails(request, response) {
     const user = userstore.getByEmail(request.cookies.user);
+    // only allow user to save their own details
     if (!user || user.id !== request.params.id) {
       response.render("404");
     } else {
       const updatedUser = {
-      firstName: request.body.firstName,
-      lastName: request.body.lastName,
-      email: request.body.email,
-      password: request.body.password,
-    };
-      userstore.updateUser(user, updatedUser);
-      response.cookie("user", user.email);
-      response.redirect('/users/' + user.id);
+        firstName: request.body.firstName,
+        lastName: request.body.lastName,
+        email: request.body.email,
+        password: request.body.password,
+      };
+      try {
+        userstore.updateUser(user, updatedUser);
+        response.cookie("user", user.email);
+        response.redirect("/users/" + user.id);
+      } catch (e) {
+        const errorContextData = { ...editUserContextData };
+        errorContextData.error = e;
+        response.render("editdetails", errorContextData);
+      }
     }
-  }
+  },
 };
 
 module.exports = account;
