@@ -17,101 +17,101 @@
     </div>
   </div>
   {{#with (last station.readings)}}
-  <!-- Weather Details -->
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="content">
-        <div class="ui grid">
-          {{#with weather}}
-          <div class="ten wide column">
-            <h3>Weather</h3>
-            <p>{{label}}</p>
-          </div>
-          <div class="six wide column">
-            <p>
-              <i class="{{icon}} icon"></i>
-            </p>
+    <!-- Weather Details -->
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="content">
+          <div class="ui grid">
+            {{#with weather}}
+              <div class="ten wide column">
+                <h3>Weather</h3>
+                <p>{{label}}</p>
+              </div>
+            <div class="six wide column">
+              <p>
+                <i class="{{icon}} icon"></i>
+              </p>
             {{/with}}
           </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Temperature Details -->
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="content">
-        <div class="ui grid">
-          <div class="ten wide column">
-            <h3>Temp</h3>
-            <p>{{temperature}} C</p>
-            <p>{{tempFahrenheit}} F</p>
-            <p>Max: {{../station.maxTemp}}</p>
-            <p>Min: {{../station.minTemp}}</p>
-          </div>
-          <div class="six wide column">
-            <div class="reading-icon">
-              <i class="{{tempIcon}} icon"></i>
+    <!-- Temperature Details -->
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="content">
+          <div class="ui grid">
+            <div class="ten wide column">
+              <h3>Temp</h3>
+              <p>{{temperature}} C</p>
+              <p>{{tempFahrenheit}} F</p>
+              <p>Max: {{../station.maxTemp}}</p>
+              <p>Min: {{../station.minTemp}}</p>
             </div>
-            <div class="reading-icon">
-              <i class="{{../station.trendTempIcon}} icon"></i>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Wind Details -->
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="content">
-        <div class="ui grid">
-          <div class="ten wide column">
-            <h3>Wind</h3>
-            {{#with beaufort}}
-            <p>{{bft}}</p>
-            <p>{{label}}</p>
-            {{/with}}
-            <p>{{windCompass}}</p>
-            <p>Feels Like: </p>
-            <p>{{windChill}}</p>
-            <p>Max: {{../station.maxWindSpeed}}</p>
-            <p>Min: {{../station.minWindSpeed}}</p>
-          </div>
-          <div class="six wide column">
-            <div class="reading-icon">
-              <i class="icon {{windIcon}}"></i>
+            <div class="six wide column">
+              <div class="reading-icon">
+                <i class="{{tempIcon}} icon"></i>
+              </div>
+              <div class="reading-icon">
+                <i class="{{../station.trendTempIcon}} icon"></i>
+              </div>
             </div>
-            <div class="reading-icon">
-              <i class="{{../station.trendWindSpeedIcon}} icon"></i>
-          </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Pressure Details -->
-  <div class="column">
-    <div class="ui fluid card">
-      <div class="content">
-        <div class="ui grid">
-          <div class="ten wide column">
-            <h3>Pressure</h3>
-            <p>{{pressure}} hpa</p>
-            <p>Max: {{../station.maxPressure}}</p>
-            <p>Min: {{../station.minPressure}}</p>
-          </div>
-          <div class="six wide column">
-            <div class="reading-icon">
-              <i class="water icon"></i>
+    <!-- Wind Details -->
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="content">
+          <div class="ui grid">
+            <div class="ten wide column">
+              <h3>Wind</h3>
+              {{#with beaufort}}
+                <p>{{bft}}</p>
+                <p>{{label}}</p>
+              {{/with}}
+              <p>{{windCompass}}</p>
+              <p>Feels Like: </p>
+              <p>{{windChill}}</p>
+              <p>Max: {{../station.maxWindSpeed}}</p>
+              <p>Min: {{../station.minWindSpeed}}</p>
             </div>
-            <div class="reading-icon">
-              <i class="{{../station.trendPressureIcon}} icon"></i>
-          </div>
+            <div class="six wide column">
+              <div class="reading-icon">
+                <i class="icon {{windIcon}}"></i>
+              </div>
+              <div class="reading-icon">
+                <i class="{{../station.trendWindSpeedIcon}} icon"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <!-- Pressure Details -->
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="content">
+          <div class="ui grid">
+            <div class="ten wide column">
+              <h3>Pressure</h3>
+              <p>{{pressure}} hpa</p>
+              <p>Max: {{../station.maxPressure}}</p>
+              <p>Min: {{../station.minPressure}}</p>
+            </div>
+            <div class="six wide column">
+              <div class="reading-icon">
+                <i class="water icon"></i>
+              </div>
+              <div class="reading-icon">
+                <i class="{{../station.trendPressureIcon}} icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   {{/with}}
 </section>

@@ -8,431 +8,38 @@
       "longitude": -6.4601397,
       "readings": [
         {
-          "id": "7b29a364-a06f-4a64-bcfb-6f1fb8672ff8",
-          "timestamp": "2022-08-05T11:55:02.794Z",
-          "code": "100",
-          "temperature": 1,
-          "windSpeed": 20,
+          "id": "06473eab-9783-4c3f-b7f4-28f0c9cc1f7f",
+          "timestamp": "2022-09-04T08:44:11.352Z",
+          "code": 200,
+          "temperature": 20,
+          "windSpeed": 10,
           "windDirection": 200,
-          "pressure": 10,
-          "weather": {
-            "label": "Clear",
-            "icon": "sun"
-          },
-          "tempFahrenheit": 33.8,
-          "tempIcon": "temperature teal low",
-          "beaufort": {
-            "bft": "4 bft",
-            "label": "Moderate Breeze"
-          },
-          "windChill": -4,
-          "windCompass": "South South West",
-          "windIcon": "wind",
+          "pressure": 1001,
           "displayTimestamp": {
-            "dateTime": "2022-08-05 11:55:02",
+            "dateTime": "2022-09-04 08:44:11",
             "timezone": "UTC"
-          }
-        },
-        {
-          "id": "5cc6f9a6-bc83-43b3-b0c4-cd5cea5cac39",
-          "timestamp": "2022-08-06T08:02:44.269Z",
-          "code": "200",
-          "temperature": 10,
-          "windSpeed": 100,
-          "windDirection": 10,
-          "pressure": 100,
+          },
           "weather": {
             "label": "Partial Clouds",
             "icon": "cloud sun"
-          },
-          "tempFahrenheit": 50,
-          "tempIcon": "thermometer",
-          "beaufort": {
-            "bft": "10 bft",
-            "label": "Strong Storm"
-          },
-          "windChill": 3.9,
-          "windCompass": "Unknown",
-          "windIcon": "red wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-06 08:02:44",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "00334881-58fb-4b26-9e0e-59f740473a0e",
-          "timestamp": "2022-08-06T08:03:04.162Z",
-          "code": "300",
-          "temperature": 20,
-          "windSpeed": 100,
-          "windDirection": 100,
-          "pressure": 100,
-          "weather": {
-            "label": "Cloudy",
-            "icon": "cloud"
           },
           "tempFahrenheit": 68,
           "tempIcon": "temperature red high",
           "beaufort": {
-            "bft": "10 bft",
-            "label": "Strong Storm"
+            "bft": "2 bft",
+            "label": "Light Breeze"
           },
-          "windChill": 18.4,
-          "windCompass": "East",
-          "windIcon": "red wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-06 08:03:04",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "2b42b98a-43dc-4a10-9462-418da001dda5",
-          "timestamp": "2022-08-06T08:45:24.762Z",
-          "code": "300",
-          "temperature": 30,
-          "windSpeed": 5,
-          "windDirection": 100,
-          "pressure": 6,
-          "weather": {
-            "label": "Cloudy",
-            "icon": "cloud"
-          },
-          "tempFahrenheit": 86,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "1 bft",
-            "label": "Light Air"
-          },
-          "windChill": 32.5,
-          "windCompass": "East",
-          "windIcon": "wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-06 08:45:24",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "5886bf10-d421-4bc3-ac81-c6502523b042",
-          "timestamp": "2022-08-06T08:45:58.724Z",
-          "code": "400",
-          "temperature": 40,
-          "windSpeed": 20,
-          "windDirection": 100,
-          "pressure": 10,
-          "weather": {
-            "label": "Light Showers",
-            "icon": "cloud sun rain"
-          },
-          "tempFahrenheit": 104,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "4 bft",
-            "label": "Moderate Breeze"
-          },
-          "windChill": 45.3,
-          "windCompass": "East",
-          "windIcon": "wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-06 08:45:58",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "8cdd36fd-9fa9-4537-9b9e-2673d391ea36",
-          "timestamp": "2022-08-06T08:59:26.054Z",
-          "code": "100",
-          "temperature": 30,
-          "windSpeed": 20,
-          "windDirection": 5,
-          "pressure": 5,
-          "weather": {
-            "label": "Clear",
-            "icon": "sun"
-          },
-          "tempFahrenheit": 86,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "4 bft",
-            "label": "Moderate Breeze"
-          },
-          "windChill": 32.6,
-          "windCompass": "Unknown",
-          "windIcon": "wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-06 08:59:26",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "73adabbd-d45c-4fc6-8a25-e187252d699f",
-          "timestamp": "2022-08-06T12:42:10.993Z",
-          "code": "600",
-          "temperature": 2,
-          "windSpeed": 50,
-          "windDirection": 200,
-          "pressure": 40,
-          "weather": {
-            "label": "Rain",
-            "icon": "cloud rain"
-          },
-          "tempFahrenheit": 35.6,
-          "tempIcon": "temperature teal low",
-          "beaufort": {
-            "bft": "7 bft",
-            "label": "Near Gale"
-          },
-          "windChill": -5.4,
+          "windChill": 20.6,
           "windCompass": "South South West",
-          "windIcon": "yellow wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-06 12:42:10",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "10a2187f-a31f-457d-8a91-bee6eb4fd18b",
-          "timestamp": "2022-08-06T17:36:07.487Z",
-          "code": "200",
-          "temperature": 15,
-          "windSpeed": 30,
-          "windDirection": 200,
-          "pressure": 60,
-          "weather": {
-            "label": "Partial Clouds",
-            "icon": "cloud sun"
-          },
-          "tempFahrenheit": 59,
-          "tempIcon": "thermometer",
-          "beaufort": {
-            "bft": "5 bft",
-            "label": "Fresh Breeze"
-          },
-          "windChill": 13.1,
-          "windCompass": "South South West",
-          "windIcon": "wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-06 17:36:07",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "b0d4dd70-864e-4057-b4a2-4c7b1ec6c863",
-          "timestamp": "2022-08-07T07:08:14.500Z",
-          "code": "400",
-          "temperature": 30,
-          "windSpeed": 60,
-          "windDirection": 100,
-          "pressure": 10,
-          "weather": {
-            "label": "Light Showers",
-            "icon": "cloud sun rain"
-          },
-          "tempFahrenheit": 86,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "7 bft",
-            "label": "Near Gale"
-          },
-          "windChill": 32.8,
-          "windCompass": "East",
-          "windIcon": "yellow wind",
-          "displayTimestamp": {
-            "dateTime": "2022-08-07 07:08:14",
-            "timezone": "UTC"
-          }
-        },
-        {
-          "id": "c533a201-4d2a-404d-9a6c-9134d1b7debc",
-          "timestamp": "2022-08-07T07:11:34.939Z",
-          "code": 803,
-          "temperature": 13.87,
-          "windSpeed": 1.79,
-          "windDirection": 325,
-          "pressure": 1028,
-          "displayTimestamp": {
-            "dateTime": "2022-08-07 07:11:34",
-            "timezone": "UTC"
-          },
-          "weather": {
-            "label": "Unknown",
-            "icon": "question"
-          },
-          "tempFahrenheit": 56.966,
-          "tempIcon": "thermometer",
-          "beaufort": {
-            "bft": "1 bft",
-            "label": "Light Air"
-          },
-          "windChill": 15.3,
-          "windCompass": "North West",
-          "windIcon": "wind"
-        },
-        {
-          "id": "3671ac2d-e8b8-4074-9b03-5cd71eeb2725",
-          "timestamp": "2022-08-07T07:56:59.736Z",
-          "code": 802,
-          "temperature": 15.01,
-          "windSpeed": 1.34,
-          "windDirection": 341,
-          "pressure": 1028,
-          "displayTimestamp": {
-            "dateTime": "2022-08-07 07:56:59",
-            "timezone": "UTC"
-          },
-          "weather": {
-            "label": "Unknown",
-            "icon": "question"
-          },
-          "tempFahrenheit": 59.018,
-          "tempIcon": "thermometer",
-          "beaufort": {
-            "bft": "1 bft",
-            "label": "Light Air"
-          },
-          "windChill": 16.8,
-          "windCompass": "North North West",
-          "windIcon": "wind"
-        },
-        {
-          "id": "5bed8df6-dee7-4c59-a32b-84e5b9a1e797",
-          "timestamp": "2022-08-07T07:58:30.504Z",
-          "code": "100",
-          "temperature": 20,
-          "windSpeed": 20,
-          "windDirection": 20,
-          "pressure": 20,
-          "displayTimestamp": {
-            "dateTime": "2022-08-07 07:58:30",
-            "timezone": "UTC"
-          },
-          "weather": {
-            "label": "Clear",
-            "icon": "sun"
-          },
-          "tempFahrenheit": 68,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "4 bft",
-            "label": "Moderate Breeze"
-          },
-          "windChill": 20,
-          "windCompass": "North North East",
-          "windIcon": "wind"
-        },
-        {
-          "id": "e4db0493-6f28-4744-a97e-25ce5d8c03c2",
-          "timestamp": "2022-08-07T17:28:08.497Z",
-          "code": 800,
-          "temperature": 19.44,
-          "windSpeed": 5.36,
-          "windDirection": 217,
-          "pressure": 1026,
-          "displayTimestamp": {
-            "dateTime": "2022-08-07 17:28:08",
-            "timezone": "UTC"
-          },
-          "weather": {
-            "label": "Thunder",
-            "icon": "bolt"
-          },
-          "tempFahrenheit": 66.992,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "Unknown",
-            "label": "Unknown"
-          },
-          "windChill": 20.4,
-          "windCompass": "South West",
-          "windIcon": "wind"
-        },
-        {
-          "id": "6d92974f-99bb-4841-871f-7538733e8fba",
-          "timestamp": "2022-08-08T16:36:42.123Z",
-          "code": "100",
-          "temperature": 22.2,
-          "windSpeed": 2.68,
-          "windDirection": 191,
-          "pressure": 1027,
-          "displayTimestamp": {
-            "dateTime": "2022-08-08 16:36:42",
-            "timezone": "UTC"
-          },
-          "weather": {
-            "label": "Clear",
-            "icon": "sun"
-          },
-          "tempFahrenheit": 71.96,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "1 bft",
-            "label": "Light Air"
-          },
-          "windChill": 23.9,
-          "windCompass": "South",
-          "windIcon": "wind"
-        },
-        {
-          "id": "8fbd84f5-106d-4c30-983d-a94c7236cb74",
-          "timestamp": "2022-08-12T15:12:03.993Z",
-          "code": "200",
-          "temperature": 22.98,
-          "windSpeed": 5.81,
-          "windDirection": 78,
-          "pressure": 1018,
-          "displayTimestamp": {
-            "dateTime": "2022-08-12 15:12:03",
-            "timezone": "UTC"
-          },
-          "weather": {
-            "label": "Partial Clouds",
-            "icon": "cloud sun"
-          },
-          "tempFahrenheit": 73.364,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "Unknown",
-            "label": "Unknown"
-          },
-          "windChill": 24.4,
-          "windCompass": "East North East",
-          "windIcon": "wind"
-        },
-        {
-          "id": "241cb6f3-52c9-4e6f-82db-804cc416dbb9",
-          "timestamp": "2022-08-14T10:14:39.975Z",
-          "code": "600",
-          "temperature": 21.18,
-          "windSpeed": 1.34,
-          "windDirection": 109,
-          "pressure": 1007,
-          "displayTimestamp": {
-            "dateTime": "2022-08-14 10:14:39",
-            "timezone": "UTC"
-          },
-          "weather": {
-            "label": "Rain",
-            "icon": "cloud rain"
-          },
-          "tempFahrenheit": 70.124,
-          "tempIcon": "temperature red high",
-          "beaufort": {
-            "bft": "1 bft",
-            "label": "Light Air"
-          },
-          "windChill": 23.2,
-          "windCompass": "East South East",
           "windIcon": "wind"
         }
       ],
-      "maxTemp": 40,
-      "minTemp": 1,
-      "trendTempIcon": "arrows alternate horizontal green",
-      "maxWindSpeed": 100,
-      "minWindSpeed": 1.34,
-      "trendWindSpeedIcon": "arrows alternate horizontal green",
-      "maxPressure": 1028,
-      "minPressure": 5,
-      "trendPressureIcon": "angle double down teal"
+      "maxTemp": 20,
+      "minTemp": 16.1,
+      "maxWindSpeed": 10,
+      "minWindSpeed": 5.81,
+      "maxPressure": 1007,
+      "minPressure": 1001
     },
     {
       "id": "17f84cb6-850b-4a87-8e6d-1787c0cd1806",
@@ -674,29 +281,87 @@
           "temperature": 22.94,
           "windSpeed": 0.88,
           "windDirection": 346,
-          "pressure": 1007
+          "pressure": 1007,
+          "displayTimestamp": {
+            "dateTime": "2022-08-14 13:04:08",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Cloudy",
+            "icon": "cloud"
+          },
+          "tempFahrenheit": 73.292,
+          "tempIcon": "temperature red high",
+          "beaufort": {
+            "bft": "Unknown",
+            "label": "Unknown"
+          },
+          "windChill": 25.2,
+          "windCompass": "North North West",
+          "windIcon": "wind"
+        },
+        {
+          "id": "9eef9922-5171-45ce-87cf-fbeeed0946ec",
+          "timestamp": "2022-08-19T17:28:57.361Z",
+          "code": "300",
+          "temperature": 16.94,
+          "windSpeed": 6.24,
+          "windDirection": 259,
+          "pressure": 1014,
+          "displayTimestamp": {
+            "dateTime": "2022-08-19 17:28:57",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Cloudy",
+            "icon": "cloud"
+          },
+          "tempFahrenheit": 62.492000000000004,
+          "tempIcon": "thermometer",
+          "beaufort": {
+            "bft": "2 bft",
+            "label": "Light Breeze"
+          },
+          "windChill": 17.4,
+          "windCompass": "West",
+          "windIcon": "wind"
+        },
+        {
+          "id": "f8717a87-02ab-4559-bd80-0259786df999",
+          "timestamp": "2022-09-04T08:43:38.155Z",
+          "code": 200,
+          "temperature": 10,
+          "windSpeed": 2,
+          "windDirection": 140,
+          "pressure": 1001,
+          "displayTimestamp": {
+            "dateTime": "2022-09-04 08:43:38",
+            "timezone": "UTC"
+          },
+          "weather": {
+            "label": "Partial Clouds",
+            "icon": "cloud sun"
+          },
+          "tempFahrenheit": 50,
+          "tempIcon": "thermometer",
+          "beaufort": {
+            "bft": "1 bft",
+            "label": "Light Air"
+          },
+          "windChill": 11.1,
+          "windCompass": "South East",
+          "windIcon": "wind"
         }
       ],
-      "maxTemp": null,
-      "minTemp": null,
-      "maxWindSpeed": null,
-      "minWindSpeed": null,
-      "maxPressure": null,
-      "minPressure": null
-    },
-    {
-      "id": "19d9e1e8-69e8-4d09-ac1b-a7e06e8e4ded",
-      "userId": "fe07558e-b9ce-4529-bf3c-7588a2b22d0d",
-      "name": "Tipperary",
-      "latitude": 52.481256898959984,
-      "longitude": -8.15872196573764,
-      "readings": [],
-      "maxTemp": null,
-      "minTemp": null,
-      "maxWindSpeed": null,
-      "minWindSpeed": null,
-      "maxPressure": null,
-      "minPressure": null
+      "maxTemp": 22.94,
+      "minTemp": 10,
+      "maxWindSpeed": 6.24,
+      "minWindSpeed": 0.88,
+      "maxPressure": 1014,
+      "minPressure": 1001,
+      "trendTempIcon": "angle double down teal",
+      "trendWindSpeedIcon": "arrows alternate horizontal green",
+      "trendPressureIcon": "arrows alternate horizontal green"
     }
   ]
 }

@@ -1,36 +1,36 @@
 const weatherMap = {
   100: {
     label: "Clear",
-    icon: "sun",
+    icon: "sun"
   },
   200: {
     label: "Partial Clouds",
-    icon: "cloud sun",
+    icon: "cloud sun"
   },
   300: {
     label: "Cloudy",
-    icon: "cloud",
+    icon: "cloud"
   },
   400: {
     label: "Light Showers",
-    icon: "cloud sun rain",
+    icon: "cloud sun rain"
   },
   500: {
     label: "Heavy Showers",
-    icon: "cloud showers heavy rain",
+    icon: "cloud showers heavy rain"
   },
   600: {
     label: "Rain",
-    icon: "cloud rain",
+    icon: "cloud rain"
   },
   700: {
     label: "Snow",
-    icon: "snowflake",
+    icon: "snowflake"
   },
   800: {
     label: "Thunder",
-    icon: "bolt",
-  },
+    icon: "bolt"
+  }
 };
 
 const windMap = {
@@ -45,18 +45,18 @@ const windMap = {
   "8 bft": "Gale",
   "9 bft": "Severe Gale",
   "10 bft": "Strong Storm",
-  "11 bft": "Violent Storm",
+  "11 bft": "Violent Storm"
 };
 
 const compassMap = {
   N: "North",
   S: "South",
   E: "East",
-  W: "West",
+  W: "West"
 };
 
-const openMapWeatherTopMapping = {
-  // openMap weather codes taken from https://openweathermap.org/weather-conditions
+const openWeatherMapping = {
+  // open weather codes taken from https://openweathermap.org/weather-conditions
   100: [800], // Clear
   200: [801, 802], // Partial Clouds
   300: [803, 804], // Cloud
@@ -64,10 +64,10 @@ const openMapWeatherTopMapping = {
   500: [522], // Heavy Showers
   600: [
     300, 301, 302, 310, 311, 312, 313, 314, 321, 500, 501, 502, 503, 504, 511,
-    520, 521, 522, 530,
+    520, 521, 522, 530
   ], // Rain
   700: [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622], // Snow
-  800: [200, 201, 202, 210, 211, 221, 230, 231, 232], // Thunder
+  800: [200, 201, 202, 210, 211, 221, 230, 231, 232] // Thunder
 };
 
 module.exports = {
@@ -77,5 +77,5 @@ module.exports = {
   WEATHER_MAP: weatherMap,
   WIND_MAP: windMap,
   COMPASS_MAP: compassMap,
-  OPEN_MAP_WEATHERTOP_MAPPING: openMapWeatherTopMapping,
+  OPEN_WEATHER_MAPPING: openWeatherMapping
 };

@@ -51,3 +51,6 @@ jspm_packages
 
 # Env files
 .env
+
+# Shrinkwrap file
+shrinkwrap.yaml

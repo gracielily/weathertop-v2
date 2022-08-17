@@ -5,7 +5,7 @@ const account = require("./account.js");
 const converters = require("../utils/converters.js");
 
 let contextData = {
-  pageTitle: "Dashboard",
+  pageTitle: "Dashboard"
 };
 
 const dashboard = {
@@ -30,7 +30,7 @@ const dashboard = {
       name: request.body.name,
       latitude: Number(request.body.latitude),
       longitude: Number(request.body.longitude),
-      readings: [],
+      readings: []
     };
     try {
       stationStore.addStation(station);
@@ -69,7 +69,7 @@ const dashboard = {
   dismissWelcomeMessage(request, response) {
     response.clearCookie("display_welcome_message");
     response.redirect("/dashboard");
-  },
+  }
 };
 
 module.exports = dashboard;

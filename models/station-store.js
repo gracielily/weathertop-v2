@@ -10,7 +10,7 @@ const stationStore = {
   getStationForUser(stationId, userId) {
     return this.store.findOneBy(this.collection, {
       id: stationId,
-      userId: userId,
+      userId: userId
     });
   },
 
@@ -56,7 +56,7 @@ const stationStore = {
     if (!stations.length) {
       throw "No Stations to delete";
     }
-    this.store.remove(this.collection, {'userId': userId})
+    this.store.remove(this.collection, { "userId": userId });
     this.store.save();
   },
 
@@ -64,7 +64,7 @@ const stationStore = {
     const station = this._getStationOrThrowError(stationId, userId);
     if (reading.windDirection < 0 || reading.windDirection > 360) {
       throw "Wind Direction must be between 0 and 360";
-    } else if (reading.windSpeed < 0) {
+    } else if (reading.windSpeed < 0 || reading.windSpeed > 117) {
       throw "Wind Speed must be between 0 and 117";
     }
     station.readings.push(reading);
@@ -81,7 +81,7 @@ const stationStore = {
     const station = this._getStationOrThrowError(stationId, userId);
     _.remove(station.readings);
     this.store.save();
-  },
+  }
 };
 
 module.exports = stationStore;

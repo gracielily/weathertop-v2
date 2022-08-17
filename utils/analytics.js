@@ -8,7 +8,7 @@ const isBetween = (val, min, max) => {
 
 const analytics = {
   calculateBeaufort: (windSpeed) => {
-    if (windSpeed == 1) {
+    if (windSpeed === 1) {
       return "0 bft";
     } else if (isBetween(windSpeed, 1, 5)) {
       return "1 bft";
@@ -80,7 +80,7 @@ const analytics = {
           0.6215 * temperature -
           11.37 * Math.pow(windSpeed, 0.16) +
           0.3965 * temperature * Math.pow(windSpeed, 0.16)) *
-          10
+        10
       ) / 10
     );
   },
@@ -111,8 +111,8 @@ const analytics = {
       }
       return constants.STEADY;
     }
-    return;
-  },
+
+  }
 };
 
 module.exports = analytics;

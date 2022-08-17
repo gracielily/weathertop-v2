@@ -22,10 +22,6 @@ class JsonStore {
     this.db.get(collection).remove(obj).value();
   }
 
-  findAll(collection) {
-    return this.db.get(collection).value();
-  }
-
   findOneBy(collection, filter) {
     const results = this.db.get(collection).filter(filter).value();
     return results[0];

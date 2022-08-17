@@ -24,8 +24,8 @@ const userStore = {
   },
 
   updateUser(currentUser, updatedUser) {
-    const userWithEmail = this.getByEmail(updatedUser.email)
-    if(userWithEmail && userWithEmail.id !== currentUser.id){
+    const userWithEmail = this.getByEmail(updatedUser.email);
+    if (userWithEmail && userWithEmail.id !== currentUser.id) {
       throw "Email " + userWithEmail.email + " already in use";
     }
     currentUser.firstName = updatedUser.firstName;
@@ -33,7 +33,7 @@ const userStore = {
     currentUser.email = updatedUser.email;
     currentUser.password = updatedUser.password;
     this.store.save();
-  },
+  }
 };
 
 module.exports = userStore;

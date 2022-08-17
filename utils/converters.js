@@ -9,7 +9,7 @@ const converters = {
     const labelMap = constants.WIND_MAP;
     return {
       bft: bft,
-      label: labelMap[bft] ? labelMap[bft] : "Unknown",
+      label: labelMap[bft] ? labelMap[bft] : "Unknown"
     };
   },
 
@@ -65,16 +65,16 @@ const converters = {
     }
   },
 
-  toWeatherTopCode(openMapWeatherCode) {
+  toWeatherTopCode(openWeatherCode) {
     /*
     Attempt to map code to weathertop code to unify data
     some codes do not match weathertop codes so return the original
     if they do not match
     */
-    const map = constants.OPEN_MAP_WEATHERTOP_MAPPING;
-    let code = openMapWeatherCode;
-    for (var key in map) {
-      if (map[key].includes(openMapWeatherCode)) {
+    const map = constants.OPEN_WEATHER_MAPPING;
+    let code = openWeatherCode;
+    for (const key in map) {
+      if (map[key].includes(openWeatherCode)) {
         code = key;
       }
     }
@@ -87,7 +87,7 @@ const converters = {
     const displayTime = date.toLocaleTimeString([], { hour12: false });
     reading.displayTimestamp = {
       dateTime: displayDate + " " + displayTime,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     };
     reading.weather = this.toWeatherDisplay(reading.code);
     reading.tempFahrenheit = this.toFahrenheit(reading.temperature);
@@ -121,7 +121,7 @@ const converters = {
 
     station.readings.map((reading) => this.toReadingDisplayData(reading));
     return station;
-  },
+  }
 };
 
 module.exports = converters;

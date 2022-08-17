@@ -1,17 +1,17 @@
 {{> menu id="dashboard" isAuthUser=true}}
 
 {{#if displayWelcomeMsg }}
-<!-- Welcome Message -->
-<div class="ui icon message">
-  <i class="hand spock icon"></i>
-  <div class="content">
-    <div class="header">
-      Welcome back, {{capitilize user.firstName}}!
+  <!-- Welcome Message -->
+  <div class="ui icon message">
+    <i class="hand spock icon"></i>
+    <div class="content">
+      <div class="header">
+        Welcome back, {{capitilize user.firstName}}!
+      </div>
+      <p>Manage your Weather Stations below</p>
     </div>
-    <p>Manage your Weather Stations below</p>
+    <a href="dashboard/dismiss-welcome"><i class="close icon"></i></a>
   </div>
-  <a href="dashboard/dismiss-welcome"><i class="close icon"></i></a>
-</div>
 {{/if}}
 <!-- Main Heading -->
 <section class="ui segment">
@@ -31,7 +31,7 @@
       <i class="plus icon"></i>Add New Station
     </button>
   </a>
-    {{#if stations}}
+  {{#if stations}}
     <button onclick="deleteAllStations()" class="right floated ui red button">
       <i class="fire icon"></i>Delete All Stations
     </button>
@@ -39,42 +39,42 @@
 </section>
 <!-- Stations List -->
 {{#if stations}}
-{{#each stations}}
-  <section class="ui segment">
-  {{#if readings}}
-    {{> latestreading station=this}}
-  {{else}}
-    <h2>{{capitilize name}}</h2>
-    <p>No Weather available for {{capitilize name}} Station.</p>
-  {{/if}}
-  <div class="ui divider"></div>
-  <a href="/stations/{{id}}">
-    <div class="ui vertical animated button">
-      <div class="hidden content">View</div>
-      <div class="visible content">
-        <i class="eye icon"></i>
-      </div>
-    </div>
-  </a>
-  <a href="/dashboard/delete-station/{{id}}">
-    <div class="ui vertical animated red button">
-      <div class="hidden content">Delete</div>
-      <div class="visible content">
-        <i class="trash icon"></i>
-      </div>
-    </div>
-  </a>
-  </section>
-{{/each}}
+  {{#each stations}}
+    <section class="ui segment">
+      {{#if readings}}
+        {{> latestreading station=this}}
+      {{else}}
+        <h2>{{capitilize name}}</h2>
+        <p>No Weather available for {{capitilize name}} Station.</p>
+      {{/if}}
+      <div class="ui divider"></div>
+      <a href="/stations/{{id}}">
+        <div class="ui vertical animated button">
+          <div class="hidden content">View</div>
+          <div class="visible content">
+            <i class="eye icon"></i>
+          </div>
+        </div>
+      </a>
+      <a href="/dashboard/delete-station/{{id}}">
+        <div class="ui vertical animated red button">
+          <div class="hidden content">Delete</div>
+          <div class="visible content">
+            <i class="trash icon"></i>
+          </div>
+        </div>
+      </a>
+    </section>
+  {{/each}}
 {{else}}
-<div class="ui icon blue message">
-  <i class="lightbulb icon"></i>
-  <div class="content">
-    <div class="header">
-      You currently have no Weather Stations
+  <div class="ui icon blue message">
+    <i class="lightbulb icon"></i>
+    <div class="content">
+      <div class="header">
+        You currently have no Weather Stations
+      </div>
     </div>
   </div>
-</div>
 {{/if}}
 <!-- Stations Map -->
 <section class="ui segment">
@@ -88,61 +88,62 @@
 </section>
 
 <script>
-const stations = {{{toJson stations}}}
-      
-function deleteAllStations() {
-  const proceed = confirm(
-    "This will delete ALL of your Stations and their Readings. Are you sure you wish to proceed?");
-  if(proceed){
-    location.href = location.href += "/delete-all-stations"
-  };
-};
+  const stations = {{{toJson stations}}}
 
-// populate the create station form with the co-ordinates
-function onMapClick(e) {
-  const createStationForm = document.getElementById("createStationForm")
-  createStationForm.elements["latitude"].value = e.latlng.lat
-  createStationForm.elements["longitude"].value = e.latlng.lng
-  let popup = L.popup();
-  popup
-  .setLatLng(e.latlng)
-  .setContent("<p>Populated form with the following:<br/> " + 
-              "<strong>Latitude:</strong> " + e.latlng.lat + 
-              "<br/><strong>Longitude:</strong> " + e.latlng.lng + "</p>")
-  .openOn(map);
-}
+    function deleteAllStations() {
+      const proceed = confirm(
+        "This will delete ALL of your Stations and their Readings. Are you sure you wish to proceed?");
+      if (proceed) {
+        location.href = location.href += "/delete-all-stations";
+      }
 
-//populate the map with station markers
-let latlngs = [];
-let zoom = 8;
-let fitBounds = false;
-const map = L.map('map');
-  
-if(stations.length){
-  stations.forEach((station) => {
-  zoom = 13;
-  fitBounds = stations.length > 1;
-  latlngs.push(L.latLng(station.latitude, station.longitude))
-  let marker = L.marker([station.latitude, station.longitude]).addTo(map);
-  const markerUrl = '/stations/' + station.id;
-  marker.bindPopup(
-    "<b>"+ station.name + "</b><br/><a href='" + markerUrl + "'>View Details</a>");
-  })
-} else {
-  // set to the centre of Ireland
-  latlngs = [L.latLng(53.4508514132473, -7.900268621742726)]
-}
-  
-map.setView([latlngs[0].lat, latlngs[0].lng], zoom)
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '© OpenStreetMap'
-}).addTo(map);
+    };
 
-// set bounds of map to see all map markers
-if(fitBounds){
-  map.fitBounds(latlngs);
-}
-  
-map.on('click', onMapClick);
+  // populate the create station form with the co-ordinates
+  function onMapClick(e) {
+    const createStationForm = document.getElementById("createStationForm");
+    createStationForm.elements["latitude"].value = e.latlng.lat;
+    createStationForm.elements["longitude"].value = e.latlng.lng;
+    let popup = L.popup();
+    popup
+      .setLatLng(e.latlng)
+      .setContent("<p>Populated form with the following:<br/> " +
+        "<strong>Latitude:</strong> " + e.latlng.lat +
+        "<br/><strong>Longitude:</strong> " + e.latlng.lng + "</p>")
+      .openOn(map);
+  }
+
+  //populate the map with station markers
+  let latlngs = [];
+  let zoom = 8;
+  let fitBounds = false;
+  const map = L.map("map");
+
+  if (stations.length) {
+    stations.forEach((station) => {
+      zoom = 13;
+      fitBounds = stations.length > 1;
+      latlngs.push(L.latLng(station.latitude, station.longitude));
+      let marker = L.marker([station.latitude, station.longitude]).addTo(map);
+      const markerUrl = "/stations/" + station.id;
+      marker.bindPopup(
+        "<b>" + station.name + "</b><br/><a href='" + markerUrl + "'>View Details</a>");
+    });
+  } else {
+    // set to the centre of Ireland
+    latlngs = [L.latLng(53.4508514132473, -7.900268621742726)];
+  }
+
+  map.setView([latlngs[0].lat, latlngs[0].lng], zoom);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 19,
+    attribution: "© OpenStreetMap"
+  }).addTo(map);
+
+  // set bounds of map to see all map markers
+  if (fitBounds) {
+    map.fitBounds(latlngs);
+  }
+
+  map.on("click", onMapClick);
 </script>

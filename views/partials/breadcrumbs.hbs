@@ -2,12 +2,12 @@
 <section class="ui left aligned middle aligned segment">
   <div class="ui breadcrumb">
     {{#each navBreadcrumbs}}
-    {{#if @last}}
-      <div class="active section">{{title}}</div>
-    {{else}}
-      <a class="section" href="{{link}}">{{title}}</a>
-      <i class="right chevron icon divider"></i>
-    {{/if}}
+      {{#if @last}}
+        <div class="active section">{{title}}</div>
+      {{else}}
+        <a class="section" href="{{link}}">{{title}}</a>
+        <i class="right chevron icon divider"></i>
+      {{/if}}
     {{/each}}
   </div>
 </section>
